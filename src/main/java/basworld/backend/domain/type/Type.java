@@ -11,7 +11,7 @@ public class Type {
     private Long id;
     private String name;
     private Type parent;
-    private List<Type> subTypes = new ArrayList<>();
+    private List<Type> subTypes;
     // Helper method to check if it's a root type (e.g., Service, Physical)
     public boolean isRoot() {
         return parent == null;

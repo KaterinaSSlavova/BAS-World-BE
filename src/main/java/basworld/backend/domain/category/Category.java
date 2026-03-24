@@ -13,7 +13,7 @@ public class Category {
     private Long id;
     private String name;
     private Type parent;
-    private List<Type> subTypes = new ArrayList<>();
+    private List<Type> subCategories;
     // Helper method to check if it's a root category
     public boolean isRoot() {
         return parent == null;
