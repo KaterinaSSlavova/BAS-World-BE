@@ -18,4 +18,15 @@ public class Product {
     private ProductStatus status;
     private Type type;
     private Category category;
+
+    public Product(String name, String description, String brand, BigDecimal price, ProductStatus status, Type type, Category category) {
+        if (name == null || name.isEmpty()) throw new NullPointerException("Name is null");
+        this.name = name;
+        this.description = description;
+        this.brand = brand;
+        this.price = price;
+        this.status = status;
+        this.type = type;
+        this.category = category;
+    }
 }

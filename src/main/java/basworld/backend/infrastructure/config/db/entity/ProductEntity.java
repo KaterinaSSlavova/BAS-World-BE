@@ -1,13 +1,18 @@
 package basworld.backend.infrastructure.config.db.entity;
 
+import basworld.backend.domain.product.Product;
 import basworld.backend.domain.product.ProductStatus;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.math.BigDecimal;
 
 @Entity
-@Data
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,4 +45,21 @@ public class ProductEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private CategoryEntity category;
+
+    public static ProductEntity toEntity(Product product){
+        return ProductEntity.builder()
+                .id(product.getId())
+                .sku(product.getSku())
+                .name(product.getName())
+                .description(product.getDescription())
+                .brand(product.getBrand())
+                .price(product.getPrice())
+                .status(product.getStatus())
+                .type(TypeEntity.toEntity(product.getType()))
+                .category(CategoryEntity.toEntity(product.getCategory()))
+                .build();
+    }
+    public Product toProduct(){
+        return new Product(id, sku,name, description, brand, price, status, type.fromEntity(), category.fromEntity());
+    }
 }

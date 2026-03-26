@@ -15,4 +15,19 @@ public class Type {
     public boolean isRoot() {
         return parent == null;
     }
+    public Type(String name, Type parent) {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be null");
+        }
+        this.name = name;
+        this.parent = parent;
+    }
+    public Type(Long id, String name, Type parent) {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be null");
+        }
+        this.id = id;
+        this.name = name;
+        this.parent = parent;
+    }
 }
