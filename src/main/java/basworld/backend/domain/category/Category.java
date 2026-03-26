@@ -1,7 +1,5 @@
 package basworld.backend.domain.category;
 
-import basworld.backend.domain.type.Type;
-import basworld.backend.infrastructure.config.db.entity.CategoryEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
