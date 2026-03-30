@@ -18,6 +18,7 @@ public class Product {
     private ProductStatus status;
     private Type type;
     private Category category;
+    // maybe add like created_at and updated_at
 
     public Product(String name, String description, String brand, BigDecimal price, ProductStatus status, Type type, Category category) {
         if (name == null || name.isEmpty()) throw new NullPointerException("Name is null");
