@@ -3,13 +3,16 @@ package basworld.backend.domain.depot;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Getter
-@Builder
 public class Depot {
     private Long id;
     private String depotName;
     private String location;
 
+    @Builder
     public Depot(Long id, String depotName, String location) {
         if(depotName==null || depotName.isBlank()){
             throw new IllegalArgumentException("Depot name cannot be blank!");
