@@ -23,4 +23,8 @@ public class Depot {
         this.depotName = depotName;
         this.location = location;
     }
+
+    public String getName() {
+        return depotName;
+    }
 }

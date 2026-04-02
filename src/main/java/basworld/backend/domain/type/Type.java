@@ -1,33 +1,36 @@
 package basworld.backend.domain.type;
 
-import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 
-import java.util.List;
-
-@Getter @AllArgsConstructor
+@Getter
 public class Type {
+
     private Long id;
     private String name;
     private Type parent;
-    private List<Type> subTypes;
-    // Helper method to check if it's a root type (e.g., Service, Physical)
-    public boolean isRoot() {
-        return parent == null;
-    }
+
     public Type(String name, Type parent) {
-        if (name == null || name.isEmpty()) {
-            throw new IllegalArgumentException("Name cannot be null");
-        }
+        validate(name);
         this.name = name;
         this.parent = parent;
     }
+
+    @Builder
     public Type(Long id, String name, Type parent) {
-        if (name == null || name.isEmpty()) {
-            throw new IllegalArgumentException("Name cannot be null");
-        }
+        validate(name);
         this.id = id;
         this.name = name;
         this.parent = parent;
+    }
+
+    private void validate(String name) {
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("Name cannot be null or blank");
+        }
+    }
+
+    public boolean isRoot() {
+        return parent == null;
     }
 }

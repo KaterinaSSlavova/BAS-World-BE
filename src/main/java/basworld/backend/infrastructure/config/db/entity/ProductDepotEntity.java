@@ -10,7 +10,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="Product_Depot")
+@Table(name="product_depot")
 public class ProductDepotEntity {
 
     @EmbeddedId

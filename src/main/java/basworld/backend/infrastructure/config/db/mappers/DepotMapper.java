@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 
 public class DepotMapper {
-    public static DepotEntity ToEntity(Depot depot){
+    public static DepotEntity toEntity(Depot depot){
         return DepotEntity.builder()
                 .id(depot.getId())
                 .depotName(depot.getDepotName())
@@ -16,7 +16,7 @@ public class DepotMapper {
                 .build();
     }
 
-    public static Depot ToDomain(DepotEntity entity){
+    public static Depot toDomain(DepotEntity entity){
         return Depot.builder()
                 .id(entity.getId())
                 .depotName(entity.getDepotName())

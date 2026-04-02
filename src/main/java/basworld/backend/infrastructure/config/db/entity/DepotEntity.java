@@ -11,7 +11,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="Depot")
+@Table(name="depot")
 @Builder
 public class DepotEntity {
 
@@ -25,7 +25,7 @@ public class DepotEntity {
     @Column(name="location")
     private String Location;
 
-    @OneToMany(mappedBy = "Depot")
+    @OneToMany(mappedBy = "depot")
     @Builder.Default
     private List<ProductDepotEntity> productDepots = new ArrayList<>();
 }
