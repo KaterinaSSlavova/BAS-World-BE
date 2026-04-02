@@ -3,9 +3,6 @@ package basworld.backend.domain.depot;
 import lombok.Builder;
 import lombok.Getter;
 
-import java.util.HashSet;
-import java.util.Set;
-
 @Getter
 public class Depot {
     private Long id;

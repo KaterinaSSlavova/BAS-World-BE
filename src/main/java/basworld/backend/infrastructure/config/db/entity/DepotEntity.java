@@ -3,8 +3,8 @@ package basworld.backend.infrastructure.config.db.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -27,5 +27,5 @@ public class DepotEntity {
 
     @OneToMany(mappedBy = "Depot")
     @Builder.Default
-    private Set<ProductDepotEntity> productDepots = new HashSet<>();
+    private List<ProductDepotEntity> productDepots = new ArrayList<>();
 }

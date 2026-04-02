@@ -3,6 +3,8 @@ package basworld.backend.infrastructure.config.db.mappers;
 import basworld.backend.domain.depot.Depot;
 import basworld.backend.infrastructure.config.db.entity.DepotEntity;
 
+import java.util.ArrayList;
+
 
 public class DepotMapper {
     public static DepotEntity ToEntity(Depot depot){
@@ -10,6 +12,7 @@ public class DepotMapper {
                 .id(depot.getId())
                 .depotName(depot.getDepotName())
                 .Location(depot.getLocation())
+                .productDepots(new ArrayList<>())
                 .build();
     }
 
