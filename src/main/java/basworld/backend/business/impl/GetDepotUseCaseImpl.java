@@ -1,6 +1,6 @@
 package basworld.backend.business.impl;
 
-import basworld.backend.business.useCase.CreateDepotUseCase;
+import basworld.backend.business.useCase.GetDepotUseCase;
 import basworld.backend.domain.depot.Depot;
 import basworld.backend.domain.repository.DepotRepository;
 import lombok.RequiredArgsConstructor;
@@ -8,11 +8,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class CreateDepotUseCaseImpl implements CreateDepotUseCase {
+public class GetDepotUseCaseImpl implements GetDepotUseCase {
     private final DepotRepository depotRepository;
 
     @Override
-    public Depot createDepot(Depot depot) {
-        return depotRepository.createDepot(depot);
+    public Depot getDepotById(long id) {
+        return depotRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Depot not found!"));
     }
 }

@@ -25,4 +25,6 @@ public class ProductDepotResponseMapper {
                 .isAvailable(productDepot.isAvailable())
                 .build();
     }
+
+
 }
