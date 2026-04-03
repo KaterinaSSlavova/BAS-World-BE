@@ -14,8 +14,10 @@ import java.util.List;
 @Repository
 @RequiredArgsConstructor
 public class ProductDepotRepositoryImpl implements ProductDepotRepository {
+
     private final jpaProductDepotRepository jpaProductDepotRepository;
     private final ProductDepotJPARepository productDepotJpaRepository;
+
 
     @Override
     public ProductDepot save(ProductDepot productDepot) {
@@ -32,6 +34,14 @@ public class ProductDepotRepositoryImpl implements ProductDepotRepository {
     @Override
     public List<ProductDepot> findAll() {
         return productDepotJpaRepository.findAllWithProductAndDepot()
+                .stream()
+                .map(ProductDepotMapper::toDomain)
+                .toList();
+    }
+
+    @Override
+    public List<ProductDepot> search(String query) {
+        return productDepotJpaRepository.search(query)
                 .stream()
                 .map(ProductDepotMapper::toDomain)
                 .toList();

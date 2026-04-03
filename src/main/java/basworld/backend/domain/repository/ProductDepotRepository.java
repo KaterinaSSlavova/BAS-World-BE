@@ -8,4 +8,5 @@ public interface ProductDepotRepository {
     ProductDepot save(ProductDepot productDepot);
     boolean existsByProductIdAndDepotId(Long productId, Long depotId);
     List<ProductDepot> findAll();
+    List<ProductDepot> search(String query);
 }

@@ -23,6 +23,8 @@ public class ProductDepotController {
     private final GetDepotUseCase getDepotUseCase;
     private final GetCategoryUseCase getCategoryUseCase;
     private final GetTypeUseCase getTypeUseCase;
+    private final SearchProductUseCase searchProductUseCase;
+
 
     @GetMapping
     public List<ProductDepotResponse> getAll() {
@@ -62,5 +64,13 @@ public class ProductDepotController {
         ProductDepot updated = updateProductUseCase.updateProduct(productDepot);
 
         return ResponseEntity.ok(ProductDepotResponseMapper.toResponse(updated));
+    }
+
+    @GetMapping("/search")
+    public List<ProductDepotResponse> search(@RequestParam String query) {
+        return searchProductUseCase.execute(query)
+                .stream()
+                .map(ProductDepotResponseMapper::toResponse)
+                .toList();
     }
 }
