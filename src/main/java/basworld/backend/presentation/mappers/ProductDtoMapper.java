@@ -1,9 +1,6 @@
 package basworld.backend.presentation.mappers;
 
 import basworld.backend.domain.product.Product;
-import basworld.backend.infrastructure.config.db.mappers.CategoryMapper;
-import basworld.backend.infrastructure.config.db.mappers.TypeMapper;
-import basworld.backend.presentation.dto.CategoryPublicData;
 import basworld.backend.presentation.dto.ProductPublicData;
 
 public class ProductDtoMapper {

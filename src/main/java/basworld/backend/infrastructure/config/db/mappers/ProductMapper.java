@@ -1,9 +1,7 @@
 package basworld.backend.infrastructure.config.db.mappers;
 
 import basworld.backend.domain.product.Product;
-import basworld.backend.infrastructure.config.db.entity.CategoryEntity;
 import basworld.backend.infrastructure.config.db.entity.ProductEntity;
-import basworld.backend.infrastructure.config.db.entity.TypeEntity;
 
 public class ProductMapper {
 

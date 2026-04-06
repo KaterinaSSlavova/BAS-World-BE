@@ -1,6 +1,5 @@
 package basworld.backend.infrastructure.config.db.entity;
 
-import basworld.backend.domain.category.Category;
 import jakarta.persistence.*;
 import lombok.*;
 

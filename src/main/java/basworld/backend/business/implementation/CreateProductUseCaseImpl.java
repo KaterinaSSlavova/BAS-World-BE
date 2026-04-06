@@ -1,17 +1,10 @@
 package basworld.backend.business.implementation;
 
 import basworld.backend.business.useCase.CreateProductUseCase;
-import basworld.backend.domain.category.Category;
 import basworld.backend.domain.product.Product;
 import basworld.backend.domain.repository.CategoryRepository;
 import basworld.backend.domain.repository.ProductRepository;
 import basworld.backend.domain.repository.TypeRepository;
-import basworld.backend.domain.type.Type;
-import basworld.backend.infrastructure.config.db.mappers.ProductMapper;
-import basworld.backend.infrastructure.config.db.mappers.TypeMapper;
-import basworld.backend.infrastructure.config.db.repository.jpaCategoryRepository;
-import basworld.backend.infrastructure.config.db.repository.jpaProductRepository;
-import basworld.backend.infrastructure.config.db.repository.jpaTypeRepository;
 import basworld.backend.presentation.dto.CreateProductRequest;
 import basworld.backend.presentation.dto.ProductPublicData;
 import basworld.backend.presentation.mappers.ProductDtoMapper;
