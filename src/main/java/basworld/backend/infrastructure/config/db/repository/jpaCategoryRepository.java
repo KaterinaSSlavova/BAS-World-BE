@@ -2,6 +2,8 @@ package basworld.backend.infrastructure.config.db.repository;
 
 import basworld.backend.infrastructure.config.db.entity.CategoryEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface CategoryRepository extends JpaRepository<CategoryEntity, Long> {
+@Repository
+public interface jpaCategoryRepository extends JpaRepository<CategoryEntity, Long> {
 }

@@ -8,6 +8,7 @@ import lombok.*;
 import java.math.BigDecimal;
 
 @Entity
+@Table(name = "product")
 @Getter
 @Setter
 @Builder
@@ -46,20 +47,4 @@ public class ProductEntity {
     @JoinColumn(name = "category_id")
     private CategoryEntity category;
 
-    public static ProductEntity toEntity(Product product){
-        return ProductEntity.builder()
-                .id(product.getId())
-                .sku(product.getSku())
-                .name(product.getName())
-                .description(product.getDescription())
-                .brand(product.getBrand())
-                .price(product.getPrice())
-                .status(product.getStatus())
-                .type(TypeEntity.toEntity(product.getType()))
-                .category(CategoryEntity.toEntity(product.getCategory()))
-                .build();
-    }
-    public Product toProduct(){
-        return new Product(id, sku,name, description, brand, price, status, type.fromEntity(), category.fromEntity());
-    }
 }
