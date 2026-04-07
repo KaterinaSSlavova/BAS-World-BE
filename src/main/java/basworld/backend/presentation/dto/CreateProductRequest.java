@@ -16,5 +16,10 @@ public class CreateProductRequest {
     private ProductStatus status;
     private Long typeId;
     private Long categoryId;
+
+    //depot
+    private Long depotId;
+    private Long stockQuantity;
+    private boolean isAvailable;
 }
 

@@ -1,8 +1,9 @@
 package basworld.backend.business.useCase;
 
+import basworld.backend.domain.depot.ProductDepot;
+import basworld.backend.domain.product.Product;
 import basworld.backend.presentation.dto.CreateProductRequest;
-import basworld.backend.presentation.dto.ProductPublicData;
 
 public interface CreateProductUseCase {
-    ProductPublicData createProduct(CreateProductRequest request);
+    ProductDepot createProduct(CreateProductRequest request);
 }
