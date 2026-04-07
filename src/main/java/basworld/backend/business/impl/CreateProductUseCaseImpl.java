@@ -5,8 +5,6 @@ import basworld.backend.domain.depot.ProductDepot;
 import basworld.backend.domain.product.Product;
 import basworld.backend.domain.repository.*;
 import basworld.backend.presentation.dto.CreateProductRequest;
-import basworld.backend.presentation.dto.ProductPublicData;
-import basworld.backend.presentation.mappers.ProductDtoMapper;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
