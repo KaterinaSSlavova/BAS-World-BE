@@ -14,7 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/depots")
+@RequestMapping("/api/depots")
 @RequiredArgsConstructor
 public class DepotController {
     private final CreateDepotUseCase createDepotUseCase;
