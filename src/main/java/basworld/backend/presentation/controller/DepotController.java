@@ -23,6 +23,7 @@ import java.util.List;
 public class DepotController {
     private final CreateDepotUseCase createDepotUseCase;
     private final GetDepotUseCase getDepotUseCase;
+    private final GetAllDepotsUseCase getAllDepotsUseCase;
 
     @PostMapping
     public ResponseEntity<DepotResponse> createDepot(@RequestBody @Valid CreateDepotRequest request) {
