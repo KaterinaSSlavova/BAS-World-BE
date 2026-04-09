@@ -37,4 +37,24 @@ public class ProductInsightsRepositoryImpl implements ProductInsightsRepository 
     public BigDecimal sumInventoryValueByDepotId(Long depotId) {
         return jpaRepository.sumInventoryValueByDepotId(depotId);
     }
+
+    @Override
+    public long countProductsOverall() {
+        return jpaRepository.countProductsOverall();
+    }
+
+    @Override
+    public long countLowStockProductsOverall() {
+        return jpaRepository.countLowStockProductsOverall();
+    }
+
+    @Override
+    public long countUnavailableItemsOverall() {
+        return jpaRepository.countUnavailableItemsOverall();
+    }
+
+    @Override
+    public BigDecimal sumInventoryValueOverall() {
+        return jpaRepository.sumInventoryValueOverall();
+    }
 }

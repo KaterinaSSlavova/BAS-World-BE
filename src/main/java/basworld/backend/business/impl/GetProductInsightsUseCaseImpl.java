@@ -15,12 +15,22 @@ public class GetProductInsightsUseCaseImpl implements GetProductInsightsUseCase 
     }
 
     @Override
-    public ProductInsights execute(Long depotId) {
+    public ProductInsights executeByDepot(Long depotId) {
         return new ProductInsights(
                 productInsightsRepository.countProductsByDepotId(depotId),
                 productInsightsRepository.countLowStockProductsByDepotId(depotId),
                 productInsightsRepository.countUnavailableItemsByDepotId(depotId),
                 productInsightsRepository.sumInventoryValueByDepotId(depotId)
+        );
+    }
+
+    @Override
+    public ProductInsights executeOverall() {
+        return new ProductInsights(
+                productInsightsRepository.countProductsOverall(),
+                productInsightsRepository.countLowStockProductsOverall(),
+                productInsightsRepository.countUnavailableItemsOverall(),
+                productInsightsRepository.sumInventoryValueOverall()
         );
     }
 }

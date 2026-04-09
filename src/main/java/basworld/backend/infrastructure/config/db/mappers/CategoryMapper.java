@@ -36,7 +36,6 @@ public class CategoryMapper {
 
         CategoryEntity parent = null;
 
-        // map parent only one level (avoid recursion)
         if (category.getParent() != null) {
             parent = CategoryEntity.builder()
                     .id(category.getParent().getId())
