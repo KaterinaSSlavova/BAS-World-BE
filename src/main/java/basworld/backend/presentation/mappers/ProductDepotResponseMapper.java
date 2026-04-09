@@ -20,6 +20,7 @@ public class ProductDepotResponseMapper {
                 .category(productDepot.getProduct().getCategory() != null
                         ? productDepot.getProduct().getCategory().getName()
                         : null)
+                .depotId(productDepot.getDepot().getId())
                 .depotName(productDepot.getDepot().getName())
                 .stockQuantity(productDepot.getStockQuantity())
                 .isAvailable(productDepot.isAvailable())

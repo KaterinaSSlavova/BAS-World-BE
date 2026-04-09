@@ -18,6 +18,7 @@ public class ProductDepotResponse {
     private ProductStatus status;
     private String type;
     private String category;
+    private Long depotId;
     private String depotName;
     private Long stockQuantity;
     private boolean isAvailable;
