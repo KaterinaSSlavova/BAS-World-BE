@@ -5,6 +5,8 @@ import basworld.backend.infrastructure.config.db.entity.ProductDepotId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.math.BigDecimal;
+
 public interface ProductInsightsJPARepository extends JpaRepository<ProductDepotEntity, ProductDepotId> {
     @Query("""
     SELECT COUNT(DISTINCT pd.product.id)
@@ -36,4 +38,31 @@ public interface ProductInsightsJPARepository extends JpaRepository<ProductDepot
     WHERE pd.depot.id = :depotId
 """)
     java.math.BigDecimal sumInventoryValueByDepotId(Long depotId);
+
+    @Query("""
+        SELECT COUNT(DISTINCT pd.product.id)
+        FROM ProductDepotEntity pd
+    """)
+    long countProductsOverall();
+
+    @Query("""
+        SELECT COUNT(DISTINCT pd.product.id)
+        FROM ProductDepotEntity pd
+        WHERE pd.stockQuantity < 5
+    """)
+    long countLowStockProductsOverall();
+
+    @Query("""
+        SELECT COUNT(pd)
+        FROM ProductDepotEntity pd
+        WHERE pd.isAvailable = false
+    """)
+    long countUnavailableItemsOverall();
+
+    @Query("""
+        SELECT COALESCE(SUM(pd.stockQuantity * p.price), 0)
+        FROM ProductDepotEntity pd
+        JOIN pd.product p
+    """)
+    BigDecimal sumInventoryValueOverall();
 }

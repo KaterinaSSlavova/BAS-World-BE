@@ -11,4 +11,9 @@ public interface ProductInsightsRepository {
     long countUnavailableItemsByDepotId(Long depotId);
 
     BigDecimal sumInventoryValueByDepotId(Long depotId);
+
+    long countProductsOverall();
+    long countLowStockProductsOverall();
+    long countUnavailableItemsOverall();
+    BigDecimal sumInventoryValueOverall();
 }
