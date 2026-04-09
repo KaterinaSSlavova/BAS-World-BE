@@ -25,7 +25,7 @@ public class GetAllDepotsUseCaseImpl implements GetAllDepotsUseCase {
         for(Depot depot:allDepots){
             Long productCount = productInsightsRepository.countProductsByDepotId(depot.getId());
             depotsDTO.add(new DepotOverviewDTO
-                    (depot.getId(), depot.getDepotName(), depot.getLocation(),  productCount));
+                    (depot.getDepotName(), depot.getLocation(),  productCount));
         }
 
         return depotsDTO;

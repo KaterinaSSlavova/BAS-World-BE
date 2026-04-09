@@ -34,6 +34,9 @@ public class UpdateProductRequest {
     private Long categoryId;
 
     @NotNull
+    private Long depotId;
+
+    @NotNull
     private Boolean isAvailable;
 
     @NotNull
