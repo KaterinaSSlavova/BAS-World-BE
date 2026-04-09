@@ -16,9 +16,13 @@ public class ProductDepotResponse {
     private String brand;
     private BigDecimal price;
     private ProductStatus status;
+
     private String type;
+    private Long typeId;
+
     private String category;
-    private Long depotId;
+    private Long categoryId;
+
     private String depotName;
     private Long stockQuantity;
     private boolean isAvailable;

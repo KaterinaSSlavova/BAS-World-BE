@@ -1,31 +1,41 @@
 package basworld.backend.presentation.mappers;
 
 import basworld.backend.domain.depot.ProductDepot;
+import basworld.backend.domain.product.Product;
 import basworld.backend.presentation.dto.ProductDepotResponse;
 
 public class ProductDepotResponseMapper {
 
     public static ProductDepotResponse toResponse(ProductDepot productDepot) {
+
+        Product product = productDepot.getProduct();
+
         return ProductDepotResponse.builder()
-                .productId(productDepot.getProduct().getId())
-                .sku(productDepot.getProduct().getSku())
-                .productName(productDepot.getProduct().getName())
-                .description(productDepot.getProduct().getDescription())
-                .brand(productDepot.getProduct().getBrand())
-                .price(productDepot.getProduct().getPrice())
-                .status(productDepot.getProduct().getStatus())
-                .type(productDepot.getProduct().getType() != null
-                        ? productDepot.getProduct().getType().getName()
+                .productId(product.getId())
+                .sku(product.getSku())
+                .productName(product.getName())
+                .description(product.getDescription())
+                .brand(product.getBrand())
+                .price(product.getPrice())
+                .status(product.getStatus())
+
+                .type(product.getType() != null
+                        ? product.getType().getName()
                         : null)
-                .category(productDepot.getProduct().getCategory() != null
-                        ? productDepot.getProduct().getCategory().getName()
+                .typeId(product.getType() != null
+                        ? product.getType().getId()
                         : null)
-                .depotId(productDepot.getDepot().getId())
+
+                .category(product.getCategory() != null
+                        ? product.getCategory().getName()
+                        : null)
+                .categoryId(product.getCategory() != null
+                        ? product.getCategory().getId()
+                        : null)
+
                 .depotName(productDepot.getDepot().getName())
                 .stockQuantity(productDepot.getStockQuantity())
                 .isAvailable(productDepot.isAvailable())
                 .build();
     }
-
-
 }
