@@ -2,6 +2,7 @@ package basworld.backend.presentation.mappers;
 
 import basworld.backend.domain.depot.Depot;
 import basworld.backend.presentation.dto.CreateDepotRequest;
+import basworld.backend.presentation.dto.DepotOverviewResponse;
 import basworld.backend.presentation.dto.DepotResponse;
 
 public class DepotMapper {

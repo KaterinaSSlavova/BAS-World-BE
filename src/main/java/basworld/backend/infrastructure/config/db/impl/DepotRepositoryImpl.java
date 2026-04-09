@@ -8,6 +8,7 @@ import basworld.backend.infrastructure.config.db.repository.jpaDepotRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -26,6 +27,11 @@ public class DepotRepositoryImpl implements DepotRepository {
     @Override
     public Optional<Depot> findById(Long id) {
         return jpaDepotRepository.findById(id).map(DepotMapper::toDomain);
+    }
+
+    @Override
+    public List<Depot> findAll(){
+        return jpaDepotRepository.findAll().stream().map(DepotMapper::toDomain).toList();
     }
 
     @Override
