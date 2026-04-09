@@ -24,6 +24,7 @@ public class ProductDepotResponse {
     private Long categoryId;
 
     private String depotName;
+    private Long depotId;
     private Long stockQuantity;
     private boolean isAvailable;
 }
