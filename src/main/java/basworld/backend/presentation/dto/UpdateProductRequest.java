@@ -37,7 +37,7 @@ public class UpdateProductRequest {
     private Long depotId;
 
     @NotNull
-    private Boolean isAvailable;
+    private Boolean available;
 
     @NotNull
     private Long stockQuantity;

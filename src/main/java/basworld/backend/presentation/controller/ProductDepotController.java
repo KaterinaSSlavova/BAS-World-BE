@@ -57,7 +57,7 @@ public class ProductDepotController {
         ProductDepot productDepot = ProductDepot.builder()
                 .product(product)
                 .depot(getDepotUseCase.getDepotById(depotId))
-                .isAvailable(request.getIsAvailable())
+                .isAvailable(request.getAvailable())
                 .stockQuantity(request.getStockQuantity())
                 .build();
 

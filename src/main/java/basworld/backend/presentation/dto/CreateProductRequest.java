@@ -20,6 +20,6 @@ public class CreateProductRequest {
     //depot
     private Long depotId;
     private Long stockQuantity;
-    private boolean isAvailable;
+    private boolean available;
 }
 
