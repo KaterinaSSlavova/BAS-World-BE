@@ -28,7 +28,11 @@ sonarqube-check:
     paths:
       - .sonar/cache
   script:
-    - ./gradlew build jacocoTestReport sonar --no-daemon -Dsonar.qualitygate.wait=true
+    - ./gradlew sonar
+      -Dsonar.projectKey=Bas-World
+      -Dsonar.projectName='Bas-World'
+      -Dsonar.host.url=http://145.220.72.89:9000
+      -Dsonar.token=$SONAR_TOKEN
   allow_failure: true
 
 package:
