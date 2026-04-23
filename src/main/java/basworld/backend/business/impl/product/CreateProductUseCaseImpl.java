@@ -1,10 +1,10 @@
-package basworld.backend.business.impl;
+package basworld.backend.business.impl.product;
 
-import basworld.backend.business.useCase.CreateProductUseCase;
+import basworld.backend.business.command.CreateProductCommand;
+import basworld.backend.business.useCase.product.CreateProductUseCase;
 import basworld.backend.domain.depot.ProductDepot;
 import basworld.backend.domain.product.Product;
 import basworld.backend.domain.repository.*;
-import basworld.backend.presentation.dto.CreateProductRequest;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ public class CreateProductUseCaseImpl implements CreateProductUseCase {
     private final TypeRepository typeRepository;
     private final DepotRepository depotRepository;
     private final ProductDepotRepository productDepotRepository;
-    public ProductDepot createProduct(CreateProductRequest request) {
+    public ProductDepot createProduct(CreateProductCommand request) {
         if (request == null) {
             throw new IllegalArgumentException("Request cannot be null!");
         }
