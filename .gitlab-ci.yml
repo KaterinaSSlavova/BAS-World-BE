@@ -2,6 +2,7 @@ stages:
   - build
   - test
   - sonarqube-check
+  - package
   - trigger_deploy
 
 build:
@@ -19,10 +20,17 @@ sonarqube-check:
   script:
     - echo "Backend..."
 
+package:
+  stage: package
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+  script:
+    - docker build -t bas-world-be:latest .
+
 trigger_deploy:
   stage: trigger_deploy
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
   trigger:
-    project: /projects/group-infra
+    project: s3-cb/spring-26/fsd1-basworld/group-project-3/bas-world-group-3-infra
     branch: main
