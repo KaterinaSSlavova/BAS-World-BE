@@ -2,6 +2,7 @@ stages:
   - build
   - test
   - sonarqube-check
+  - trigger_deploy
 
 build:
   stage: build
@@ -17,3 +18,11 @@ sonarqube-check:
   stage: sonarqube-check
   script:
     - echo "Backend..."
+
+trigger_deploy:
+  stage: trigger_deploy
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+  trigger:
+    project: projects/group-infra
+    branch: main
