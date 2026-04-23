@@ -1,6 +1,6 @@
-package basworld.backend.business.useCase;
+package basworld.backend.business.useCase.depot;
 
-import basworld.backend.presentation.dto.DepotOverviewDTO;
+import basworld.backend.presentation.dto.depot.DepotOverviewDTO;
 
 import java.util.List;
 

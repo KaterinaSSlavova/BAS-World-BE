@@ -1,5 +1,6 @@
 package basworld.backend.presentation.dto;
 
+import basworld.backend.presentation.dto.depot.DepotResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

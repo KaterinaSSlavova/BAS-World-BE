@@ -1,4 +1,4 @@
-package basworld.backend.presentation.dto;
+package basworld.backend.presentation.dto.depot;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

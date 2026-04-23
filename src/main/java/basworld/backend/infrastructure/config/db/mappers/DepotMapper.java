@@ -5,7 +5,6 @@ import basworld.backend.infrastructure.config.db.entity.DepotEntity;
 
 import java.util.ArrayList;
 
-
 public class DepotMapper {
     public static DepotEntity toEntity(Depot depot){
         return DepotEntity.builder()
@@ -13,6 +12,7 @@ public class DepotMapper {
                 .depotName(depot.getDepotName())
                 .Location(depot.getLocation())
                 .productDepots(new ArrayList<>())
+                .archived(depot.isArchived())
                 .build();
     }
 
@@ -21,6 +21,7 @@ public class DepotMapper {
                 .id(entity.getId())
                 .depotName(entity.getDepotName())
                 .location(entity.getLocation())
+                .archived(entity.isArchived())
                 .build();
     }
 }

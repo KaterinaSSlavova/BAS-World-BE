@@ -34,7 +34,7 @@ public class ProductDepotResponseMapper {
                         : null)
                 .depotId(productDepot.getDepot().getId())
 
-                .depotName(productDepot.getDepot().getName())
+                .depotName(productDepot.getDepot().getDepotName())
                 .stockQuantity(productDepot.getStockQuantity())
                 .available(productDepot.isAvailable())
                 .build();

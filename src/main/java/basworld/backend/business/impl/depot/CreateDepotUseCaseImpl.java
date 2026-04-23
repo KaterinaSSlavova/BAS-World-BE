@@ -1,6 +1,6 @@
-package basworld.backend.business.impl;
+package basworld.backend.business.impl.depot;
 
-import basworld.backend.business.useCase.CreateDepotUseCase;
+import basworld.backend.business.useCase.depot.CreateDepotUseCase;
 import basworld.backend.domain.depot.Depot;
 import basworld.backend.domain.repository.DepotRepository;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +13,6 @@ public class CreateDepotUseCaseImpl implements CreateDepotUseCase {
 
     @Override
     public Depot createDepot(Depot depot) {
-        return depotRepository.createDepot(depot);
+        return depotRepository.saveDepot(depot);
     }
 }

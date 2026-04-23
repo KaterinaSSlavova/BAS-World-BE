@@ -28,4 +28,7 @@ public class DepotEntity {
     @OneToMany(mappedBy = "depot")
     @Builder.Default
     private List<ProductDepotEntity> productDepots = new ArrayList<>();
+   
+    @Column(name="is_archived")
+    private boolean archived;
 }

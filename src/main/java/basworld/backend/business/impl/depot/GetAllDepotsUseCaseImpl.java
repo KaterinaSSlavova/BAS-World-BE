@@ -1,10 +1,10 @@
-package basworld.backend.business.impl;
+package basworld.backend.business.impl.depot;
 
-import basworld.backend.business.useCase.GetAllDepotsUseCase;
+import basworld.backend.business.useCase.depot.GetAllDepotsUseCase;
 import basworld.backend.domain.depot.Depot;
 import basworld.backend.domain.repository.DepotRepository;
 import basworld.backend.domain.repository.ProductInsightsRepository;
-import basworld.backend.presentation.dto.DepotOverviewDTO;
+import basworld.backend.presentation.dto.depot.DepotOverviewDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
