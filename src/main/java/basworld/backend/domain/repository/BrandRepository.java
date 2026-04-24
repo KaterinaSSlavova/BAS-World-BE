@@ -9,4 +9,5 @@ public interface BrandRepository {
     Optional<Brand> findById(Long id);
     Brand saveBrand(Brand brand);
     List<Brand> findAll();
+    boolean existsByNameAndArchivedFalse(String name);
 }

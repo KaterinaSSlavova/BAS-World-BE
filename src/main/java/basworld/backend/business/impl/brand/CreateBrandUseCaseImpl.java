@@ -13,6 +13,9 @@ public class CreateBrandUseCaseImpl implements CreateBrandUseCase {
 
     @Override
     public Brand createBrand(Brand brand) {
+        if(brandRepository.existsByNameAndArchivedFalse(brand.getName())){
+            throw new IllegalArgumentException("This brand already exists!");
+        }
         return brandRepository.saveBrand(brand);
     }
 }

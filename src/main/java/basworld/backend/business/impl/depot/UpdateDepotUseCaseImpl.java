@@ -16,14 +16,12 @@ public class UpdateDepotUseCaseImpl implements UpdateDepotUseCase {
         Depot oldDepot = depotRepository.findById(newDepot.getId())
                 .orElseThrow(() -> new IllegalArgumentException("Depot not found"));
 
-        if(newDepot.getDepotName()!=null) {
-            oldDepot.setDepotName(newDepot.getDepotName());
+        if(depotRepository.existsByNameAndArchivedFalse(newDepot.getDepotName())
+                && !oldDepot.getDepotName().equalsIgnoreCase(newDepot.getDepotName())) {
+            throw new IllegalArgumentException("Depot already exists!");
         }
-
-        if (newDepot.getLocation()!=null) {
-            oldDepot.setLocation(newDepot.getLocation());
-        }
-
+        oldDepot.setDepotName(newDepot.getDepotName());
+        oldDepot.setLocation(newDepot.getLocation());
         return depotRepository.saveDepot(oldDepot);
     }
 }

@@ -31,4 +31,10 @@ public class BrandRepositoryImpl implements BrandRepository {
     public List<Brand> findAll() {
         return jpaBrandRepository.findAll().stream().filter(b -> !b.isArchived()).map(BrandMapper::toDomain).toList();
     }
+
+    @Override
+    public boolean existsByNameAndArchivedFalse(String name) {
+        return jpaBrandRepository.existsByNameAndArchivedFalse(name);
+    }
+
 }

@@ -15,10 +15,13 @@ public class UpdateBrandUseCaseImpl implements UpdateBrandUseCase {
     public Brand updateBrand(Brand newBrand) {
         Brand oldBrand = brandRepository.findById(newBrand.getId())
                 .orElseThrow(() -> new IllegalArgumentException("Brand not found!"));
-
-        if(newBrand.getName()!=null){
-            oldBrand.setName(newBrand.getName());
+        
+        if(!oldBrand.getName().equalsIgnoreCase(newBrand.getName())
+                && brandRepository.existsByNameAndArchivedFalse(newBrand.getName())) {
+            throw new IllegalArgumentException("This brand already exists!");
         }
+
+        oldBrand.setName(newBrand.getName());
 
         if(newBrand.getPicture()!=null){
             oldBrand.setPicture(newBrand.getPicture());

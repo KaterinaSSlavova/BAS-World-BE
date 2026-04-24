@@ -9,5 +9,6 @@ public interface DepotRepository {
     Depot saveDepot(Depot depot);
     Optional<Depot> findById(Long id);
     boolean existsById(Long id);
+    boolean existsByNameAndArchivedFalse(String name);
     List<Depot> findAll();
 }

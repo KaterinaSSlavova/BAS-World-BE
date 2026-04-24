@@ -13,7 +13,8 @@ public class ArchiveDepotUseCaseImpl implements ArchiveDepotUseCase {
 
     @Override
     public void archiveDepot(Long id) {
-        Depot depot = depotRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Depot not found"));
+        Depot depot = depotRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Depot not found"));
         depot.archiveDepot();
         depotRepository.saveDepot(depot);
     }

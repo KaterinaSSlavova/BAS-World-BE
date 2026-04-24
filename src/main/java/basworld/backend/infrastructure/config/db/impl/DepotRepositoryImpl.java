@@ -39,6 +39,11 @@ public class DepotRepositoryImpl implements DepotRepository {
     }
 
     @Override
+    public boolean existsByNameAndArchivedFalse(String name){
+        return jpaDepotRepository.existsByNameAndArchivedFalse(name);
+    }
+
+    @Override
     public boolean existsById(Long id) {
         return jpaDepotRepository.existsById(id);
     }

@@ -13,6 +13,7 @@ public class GetBrandUseCaseImpl implements GetBrandUseCase {
 
     @Override
     public Brand getBrandById(Long id) {
-        return brandRepository.findById(id).orElseThrow(() -> new IllegalStateException("Brand not found!"));
+        return brandRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Brand not found!"));
     }
 }

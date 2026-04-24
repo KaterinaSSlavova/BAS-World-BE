@@ -13,7 +13,8 @@ public class ArchiveBrandUseCaseImpl implements ArchiveBrandUseCase {
 
     @Override
     public void archiveBrand(Long id) {
-        Brand brand = brandRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Brand not found!"));
+        Brand brand = brandRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Brand not found!"));
         brand.setArchived(true);
         brandRepository.saveBrand(brand);
     }

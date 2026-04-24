@@ -13,6 +13,9 @@ public class CreateDepotUseCaseImpl implements CreateDepotUseCase {
 
     @Override
     public Depot createDepot(Depot depot) {
+        if(depotRepository.existsByNameAndArchivedFalse(depot.getDepotName())) {
+            throw new IllegalArgumentException("Depot with this name already exists!");
+        }
         return depotRepository.saveDepot(depot);
     }
 }
