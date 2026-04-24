@@ -40,7 +40,7 @@ public class DepotRepositoryImpl implements DepotRepository {
 
     @Override
     public boolean existsByNameAndArchivedFalse(String name){
-        return jpaDepotRepository.existsByNameAndArchivedFalse(name);
+        return jpaDepotRepository.existsByDepotNameAndArchivedFalse(name);
     }
 
     @Override

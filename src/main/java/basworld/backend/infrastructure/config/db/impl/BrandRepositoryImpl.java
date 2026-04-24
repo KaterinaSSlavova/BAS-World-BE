@@ -34,7 +34,7 @@ public class BrandRepositoryImpl implements BrandRepository {
 
     @Override
     public boolean existsByNameAndArchivedFalse(String name) {
-        return jpaBrandRepository.existsByNameAndArchivedFalse(name);
+        return jpaBrandRepository.existsByBrandNameAndArchivedFalse(name);
     }
 
 }

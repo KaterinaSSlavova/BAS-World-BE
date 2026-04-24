@@ -4,5 +4,5 @@ import basworld.backend.infrastructure.config.db.entity.DepotEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface jpaDepotRepository extends JpaRepository<DepotEntity, Long> {
-    boolean existsByNameAndArchivedFalse(String name);
+    boolean existsByDepotNameAndArchivedFalse(String name);
 }
