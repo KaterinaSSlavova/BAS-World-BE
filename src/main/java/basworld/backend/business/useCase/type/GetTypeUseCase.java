@@ -1,4 +1,4 @@
-package basworld.backend.business.useCase;
+package basworld.backend.business.useCase.type;
 
 import basworld.backend.domain.type.Type;
 

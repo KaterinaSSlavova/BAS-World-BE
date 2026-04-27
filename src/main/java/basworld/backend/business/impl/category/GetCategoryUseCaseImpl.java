@@ -1,6 +1,6 @@
-package basworld.backend.business.impl;
+package basworld.backend.business.impl.category;
 
-import basworld.backend.business.useCase.GetCategoryUseCase;
+import basworld.backend.business.useCase.category.GetCategoryUseCase;
 import basworld.backend.domain.category.Category;
 import basworld.backend.domain.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;

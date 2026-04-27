@@ -1,6 +1,6 @@
-package basworld.backend.business.impl;
+package basworld.backend.business.impl.type;
 
-import basworld.backend.business.useCase.GetTypeUseCase;
+import basworld.backend.business.useCase.type.GetTypeUseCase;
 import basworld.backend.domain.repository.TypeRepository;
 import basworld.backend.domain.type.Type;
 import lombok.RequiredArgsConstructor;

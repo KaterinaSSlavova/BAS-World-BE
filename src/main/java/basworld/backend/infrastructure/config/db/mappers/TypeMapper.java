@@ -16,6 +16,7 @@ public class TypeMapper {
             parent = Type.builder()
                     .id(entity.getParent().getId())
                     .name(entity.getParent().getName())
+                    .isArchived(entity.getParent().getIsArchived())
                     .parent(null)
                     .build();
         }
@@ -23,6 +24,7 @@ public class TypeMapper {
         return Type.builder()
                 .id(entity.getId())
                 .name(entity.getName())
+                .isArchived(entity.getIsArchived())
                 .parent(parent)
                 .build();
     }
@@ -38,12 +40,14 @@ public class TypeMapper {
             parent = TypeEntity.builder()
                     .id(type.getParent().getId())
                     .name(type.getParent().getName())
+                    .isArchived(type.getParent().isArchived())
                     .build();
         }
 
         return TypeEntity.builder()
                 .id(type.getId())
                 .name(type.getName())
+                .isArchived(type.isArchived())
                 .parent(parent)
                 .build();
     }

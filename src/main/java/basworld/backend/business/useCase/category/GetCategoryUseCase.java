@@ -1,4 +1,4 @@
-package basworld.backend.business.useCase;
+package basworld.backend.business.useCase.category;
 
 import basworld.backend.domain.category.Category;
 

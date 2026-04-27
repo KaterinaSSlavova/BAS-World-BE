@@ -1,0 +1,1 @@
+ALTER TABLE category ALTER COLUMN parent_category_id DROP NOT NULL;
