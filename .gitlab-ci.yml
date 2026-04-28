@@ -2,6 +2,8 @@ stages:
   - build
   - test
   - sonarqube-check
+  - package
+  - trigger_deploy
 
 build:
   stage: build
@@ -15,5 +17,30 @@ test:
 
 sonarqube-check:
   stage: sonarqube-check
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+  variables:
+    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
+    GIT_DEPTH: "0"
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
   script:
-    - echo "Backend..."
+    - ./gradlew build sonar -Dsonar.projectKey=Bas-World -Dsonar.projectName='Bas-World' -Dsonar.host.url=http://145.220.72.89:9000 -Dsonar.token=$SONAR_TOKEN
+  allow_failure: true
+
+package:
+  stage: package
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+  script:
+    - docker build -t bas-world-be:latest .
+
+trigger_deploy:
+  stage: trigger_deploy
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+  trigger:
+    project: s3-cb/spring-26/fsd1-basworld/group-project-3/bas-world-group-3-infra
+    branch: main
