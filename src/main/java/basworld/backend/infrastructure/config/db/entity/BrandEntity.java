@@ -15,6 +15,11 @@ public class BrandEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String picture;
+
     @Column(name="brand_name")
     private String brandName;
+
+    @Column(name="is_archived")
+    private boolean archived;
 }

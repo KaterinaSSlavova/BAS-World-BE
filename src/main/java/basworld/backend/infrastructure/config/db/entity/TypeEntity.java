@@ -22,6 +22,10 @@ public class TypeEntity {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @Column(name = "is_archived", nullable = false)
+    @Builder.Default
+    private Boolean isArchived = false;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_type_id")
     private TypeEntity parent;

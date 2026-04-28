@@ -1,0 +1,2 @@
+ALTER TABLE category
+    ADD COLUMN is_archived BOOLEAN NOT NULL DEFAULT FALSE;

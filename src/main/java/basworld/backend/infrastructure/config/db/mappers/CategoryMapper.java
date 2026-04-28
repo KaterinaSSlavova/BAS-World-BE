@@ -18,6 +18,7 @@ public class CategoryMapper {
             parent = Category.builder()
                     .id(entity.getParent().getId())
                     .name(entity.getParent().getName())
+                    .isArchived(entity.getParent().getIsArchived())
                     .parent(null)
                     .build();
         }
@@ -25,6 +26,7 @@ public class CategoryMapper {
         return Category.builder()
                 .id(entity.getId())
                 .name(entity.getName())
+                .isArchived(entity.getIsArchived())
                 .parent(parent)
                 .build();
     }
@@ -40,12 +42,14 @@ public class CategoryMapper {
             parent = CategoryEntity.builder()
                     .id(category.getParent().getId())
                     .name(category.getParent().getName())
+                    .isArchived(category.getParent().isArchived())
                     .build();
         }
 
         return CategoryEntity.builder()
                 .id(category.getId())
                 .name(category.getName())
+                .isArchived(category.isArchived())
                 .parent(parent)
                 .build();
     }
