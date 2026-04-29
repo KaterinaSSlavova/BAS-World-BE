@@ -47,4 +47,9 @@ public class DepotRepositoryImpl implements DepotRepository {
     public boolean existsById(Long id) {
         return jpaDepotRepository.existsById(id);
     }
+
+    @Override
+    public List<Depot> findByMultipleIds(List<Long> ids) {
+        return jpaDepotRepository.findByIdIn(ids).stream().map(DepotMapper::toDomain).toList();
+    }
 }

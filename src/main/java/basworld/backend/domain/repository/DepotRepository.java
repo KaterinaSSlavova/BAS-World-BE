@@ -11,4 +11,5 @@ public interface DepotRepository {
     boolean existsById(Long id);
     boolean existsByNameAndArchivedFalse(String name);
     List<Depot> findAll();
+    List<Depot> findByMultipleIds(List<Long> ids);
 }

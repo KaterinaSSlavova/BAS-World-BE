@@ -32,9 +32,8 @@ public interface ProductInsightsJPARepository extends JpaRepository<ProductDepot
     long countUnavailableItemsByDepotId(Long depotId);
 
     @Query("""
-    SELECT COALESCE(SUM(pd.stockQuantity * p.price), 0)
+    SELECT COALESCE(SUM(pd.stockQuantity * pd.costPrice), 0)
     FROM ProductDepotEntity pd
-    JOIN pd.product p
     WHERE pd.depot.id = :depotId
 """)
     java.math.BigDecimal sumInventoryValueByDepotId(Long depotId);
@@ -60,9 +59,8 @@ public interface ProductInsightsJPARepository extends JpaRepository<ProductDepot
     long countUnavailableItemsOverall();
 
     @Query("""
-        SELECT COALESCE(SUM(pd.stockQuantity * p.price), 0)
-        FROM ProductDepotEntity pd
-        JOIN pd.product p
+        SELECT COALESCE(SUM(stockQuantity * costPrice), 0)
+        FROM ProductDepotEntity
     """)
     BigDecimal sumInventoryValueOverall();
 }

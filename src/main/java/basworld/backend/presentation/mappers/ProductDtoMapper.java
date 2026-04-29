@@ -5,7 +5,7 @@ import basworld.backend.presentation.dto.ProductPublicData;
 
 public class ProductDtoMapper {
     public static ProductPublicData toProductPublicData(Product product) {
-        return new ProductPublicData(product.getId(), product.getSku(),product.getName(), product.getDescription(), product.getBrand(), product.getPrice(),
+        return new ProductPublicData(product.getId(), product.getSku(),product.getName(), product.getDescription(), BrandMapper.toResponse(product.getBrand()),
                 product.getStatus(), TypeDtoMapper.toTypePublicData(product.getType()), CategoryDtoMapper.toCategoryPublicData(product.getCategory()));
     }
 }

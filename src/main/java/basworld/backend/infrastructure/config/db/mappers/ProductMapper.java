@@ -1,8 +1,10 @@
 package basworld.backend.infrastructure.config.db.mappers;
 
+import basworld.backend.domain.brand.Brand;
 import basworld.backend.domain.category.Category;
 import basworld.backend.domain.product.Product;
 import basworld.backend.domain.type.Type;
+import basworld.backend.infrastructure.config.db.entity.BrandEntity;
 import basworld.backend.infrastructure.config.db.entity.CategoryEntity;
 import basworld.backend.infrastructure.config.db.entity.ProductEntity;
 import basworld.backend.infrastructure.config.db.entity.TypeEntity;
@@ -16,14 +18,14 @@ public class ProductMapper {
 
         Type type = TypeMapper.toDomain(entity.getType());
         Category category = CategoryMapper.toDomain(entity.getCategory());
+        Brand brand =  BrandMapper.toDomain(entity.getBrand());
 
         return Product.builder()
                 .id(entity.getId())
                 .sku(entity.getSku())
                 .name(entity.getName())
                 .description(entity.getDescription())
-                .brand(entity.getBrand())
-                .price(entity.getPrice())
+                .brand(brand)
                 .status(entity.getStatus())
                 .type(type)
                 .category(category)
@@ -37,14 +39,14 @@ public class ProductMapper {
 
         TypeEntity typeEntity = TypeMapper.toEntity(product.getType());
         CategoryEntity categoryEntity = CategoryMapper.toEntity(product.getCategory());
+        BrandEntity brandEntity =  BrandMapper.toEntity(product.getBrand());
 
         return ProductEntity.builder()
                 .id(product.getId())
                 .sku(product.getSku())
                 .name(product.getName())
                 .description(product.getDescription())
-                .brand(product.getBrand())
-                .price(product.getPrice())
+                .brand(brandEntity)
                 .status(product.getStatus())
                 .type(typeEntity)
                 .category(categoryEntity)

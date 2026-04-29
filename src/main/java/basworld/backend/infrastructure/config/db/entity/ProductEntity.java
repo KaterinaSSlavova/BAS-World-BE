@@ -4,8 +4,6 @@ import basworld.backend.domain.product.ProductStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.math.BigDecimal;
-
 @Entity
 @Getter
 @Setter
@@ -30,11 +28,9 @@ public class ProductEntity {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "brand")
-    private String brand;
-
-    @Column(name = "price")
-    private BigDecimal price;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "brand_id")
+    private BrandEntity brand;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
