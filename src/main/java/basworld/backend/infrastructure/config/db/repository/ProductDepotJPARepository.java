@@ -1,9 +1,7 @@
 package basworld.backend.infrastructure.config.db.repository;
 
-import basworld.backend.domain.product.Product;
 import basworld.backend.infrastructure.config.db.entity.ProductDepotEntity;
 import basworld.backend.infrastructure.config.db.entity.ProductDepotId;
-import basworld.backend.infrastructure.config.db.entity.ProductEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

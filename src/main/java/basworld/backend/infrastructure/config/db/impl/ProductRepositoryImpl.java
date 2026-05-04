@@ -1,6 +1,5 @@
 package basworld.backend.infrastructure.config.db.impl;
 
-import basworld.backend.domain.depot.ProductDepot;
 import basworld.backend.domain.product.Product;
 import basworld.backend.domain.repository.ProductRepository;
 import basworld.backend.infrastructure.config.db.entity.ProductEntity;
