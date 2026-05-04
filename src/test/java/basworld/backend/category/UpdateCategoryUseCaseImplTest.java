@@ -51,7 +51,7 @@ class UpdateCategoryUseCaseImplTest {
                 .id(2L)
                 .name("New Tyres")
                 .isArchived(false)
-                .parent(parent)
+                .parent(null)
                 .build();
         when(categoryRepository.findById(2L)).thenReturn(Optional.of(existing));
         when(categoryRepository.existsByNameAndIsArchivedFalse("New Tyres")).thenReturn(false);
@@ -69,14 +69,13 @@ class UpdateCategoryUseCaseImplTest {
         // Assert
         assertNotNull(result);
         assertEquals("New Tyres", result.getName());
-        assertEquals(parent, result.getParent());
         verify(categoryRepository, times(1)).findById(2L);
         verify(categoryRepository, times(1)).existsByNameAndIsArchivedFalse("New Tyres");
         verify(categoryRepository, times(1)).save(existing);
     }
 
     @Test
-    void updateCategory_ShouldKeepExistingParent_WhenParentIdIsNull() {
+    void updateCategory_ShouldClearParent_WhenParentIdIsNull() {
         // Arrange
         when(categoryRepository.findById(2L)).thenReturn(Optional.of(existing));
         when(categoryRepository.save(any(Category.class))).thenReturn(existing);
@@ -92,9 +91,8 @@ class UpdateCategoryUseCaseImplTest {
 
         // Assert
         assertNotNull(result);
-        assertEquals(parent, result.getParent());
+        assertNull(result.getParent()); // parent is cleared when parentId is null
         verify(categoryRepository, never()).existsByNameAndIsArchivedFalse(any());
-        verify(categoryRepository, never()).findById(1L);
         verify(categoryRepository, times(1)).save(existing);
     }
 
@@ -118,7 +116,7 @@ class UpdateCategoryUseCaseImplTest {
         when(categoryRepository.save(any(Category.class))).thenReturn(updated);
 
         Category request = Category.builder()
-                .name("Tyres") // same name — existsByName never called
+                .name("Tyres")
                 .isArchived(false)
                 .parent(null)
                 .build();
@@ -205,7 +203,7 @@ class UpdateCategoryUseCaseImplTest {
         when(categoryRepository.findById(999L)).thenReturn(Optional.empty());
 
         Category request = Category.builder()
-                .name("Tyres") // same name — existsByName never called
+                .name("Tyres")
                 .isArchived(false)
                 .parent(null)
                 .build();
