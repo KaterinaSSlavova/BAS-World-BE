@@ -20,8 +20,6 @@ public class CreateProductRequest {
     @NotNull
     private Long brandId;
     @NotNull
-    private BigDecimal price;
-    @NotNull
     private ProductStatus status;
     @NotNull
     private Long typeId;

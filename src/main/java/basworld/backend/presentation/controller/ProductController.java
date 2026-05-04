@@ -94,7 +94,7 @@ public class ProductController {
         return ResponseEntity.ok().body(ProductDtoMapper.toProductPublicData(product));
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}/with-depots")
     public ResponseEntity<ProductWithDepotsResponse> getProductWithDepots(@PathVariable("id") Long productId) {
         var productWithDepots = getProductWithDepotsUseCase.getProductWithDepots(productId);
         return ResponseEntity.ok().body(ProductWithDepotsDtoMapper.toResponse(productWithDepots.product(), productWithDepots.depots()));

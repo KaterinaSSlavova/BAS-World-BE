@@ -1,5 +1,6 @@
 package basworld.backend.business.impl.product;
 
+import basworld.backend.business.exception.ProductNotFound;
 import basworld.backend.business.result.ProductWithDepotsResult;
 import basworld.backend.business.useCase.product.GetProductWithDepotsUseCase;
 import basworld.backend.domain.depot.ProductDepot;
@@ -19,7 +20,7 @@ public class GetProductWithDepotsUseCaseImpl implements GetProductWithDepotsUseC
 
     @Override
     public ProductWithDepotsResult getProductWithDepots(Long id) {
-        Product product = productRepository.findById(id).orElseThrow(() -> new IllegalStateException("Product not found!"));
+        Product product = productRepository.findById(id).orElseThrow(() -> new ProductNotFound("Product not found!"));
         List<ProductDepot> productDepotList = productDepotRepository.findByProductId(product.getId());
         return new  ProductWithDepotsResult(product, productDepotList);
     }
