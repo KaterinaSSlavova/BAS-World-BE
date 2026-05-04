@@ -1,14 +1,12 @@
-package basworld.backend.presentation.dto;
+package basworld.backend.presentation.dto.product;
 
-import basworld.backend.domain.category.Category;
 import basworld.backend.domain.product.ProductStatus;
-import basworld.backend.domain.type.Type;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.math.BigDecimal;
+import java.util.List;
 
 @Getter
 @Setter
@@ -19,10 +17,7 @@ public class UpdateProductRequest {
 
     private String description;
 
-    private String brand;
-
-    @NotNull
-    private BigDecimal price;
+    private Long brandId;
 
     @NotNull
     private ProductStatus status;
@@ -33,12 +28,5 @@ public class UpdateProductRequest {
     @NotNull
     private Long categoryId;
 
-    @NotNull
-    private Long depotId;
-
-    @NotNull
-    private Boolean available;
-
-    @NotNull
-    private Long stockQuantity;
+    List<ProductDepotRequest> productDepots;
 }

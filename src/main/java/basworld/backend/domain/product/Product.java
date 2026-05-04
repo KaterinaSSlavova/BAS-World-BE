@@ -97,6 +97,23 @@ public class Product {
         }
     }
 
+    public void update(String name,
+                       String description,
+                       Brand brand,
+                       ProductStatus status,
+                       Type type,
+                       Category category) {
+
+        validate(this.sku, name, description, brand, status, type, category);
+
+        this.name = name;
+        this.description = description;
+        this.brand = brand;
+        this.status = status;
+        this.type = type;
+        this.category = category;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }

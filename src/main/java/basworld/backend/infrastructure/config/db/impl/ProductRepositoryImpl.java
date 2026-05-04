@@ -4,9 +4,7 @@ import basworld.backend.domain.depot.ProductDepot;
 import basworld.backend.domain.product.Product;
 import basworld.backend.domain.repository.ProductRepository;
 import basworld.backend.infrastructure.config.db.entity.ProductEntity;
-import basworld.backend.infrastructure.config.db.mappers.ProductDepotMapper;
 import basworld.backend.infrastructure.config.db.mappers.ProductMapper;
-import basworld.backend.infrastructure.config.db.repository.ProductDepotJPARepository;
 import basworld.backend.infrastructure.config.db.repository.jpaProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -34,4 +32,7 @@ public class ProductRepositoryImpl implements ProductRepository {
     public boolean existsById(Long id) {
         return productRepository.existsById(id);
     }
+
+    @Override
+    public List<Product> findAll() { return productRepository.findAll().stream().map(ProductMapper::toDomain).toList();}
 }

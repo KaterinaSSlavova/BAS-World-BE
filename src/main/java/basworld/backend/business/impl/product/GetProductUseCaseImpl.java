@@ -1,6 +1,6 @@
-package basworld.backend.business.impl;
+package basworld.backend.business.impl.product;
 
-import basworld.backend.business.useCase.GetProductUseCase;
+import basworld.backend.business.useCase.product.GetProductUseCase;
 import basworld.backend.domain.product.Product;
 import basworld.backend.domain.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;

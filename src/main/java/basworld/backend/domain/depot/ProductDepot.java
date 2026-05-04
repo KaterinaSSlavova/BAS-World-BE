@@ -31,4 +31,15 @@ public class ProductDepot {
         this.costPrice = costPrice;
         this.salePrice = salePrice;
     }
+    public void update(boolean isAvailable, Long stockQuantity, BigDecimal costPrice, BigDecimal salePrice){
+        if(stockQuantity<0) throw new IllegalArgumentException("Stock quantity cannot be negative!");
+        if(costPrice.compareTo(BigDecimal.ZERO) <= 0 ) throw new IllegalArgumentException("Cost price cannot be 0 or negative");
+        if(salePrice.compareTo(BigDecimal.ZERO) <= 0 ) throw new IllegalArgumentException("Sale price cannot be 0 or negative");
+        if(stockQuantity==0 && isAvailable) throw new IllegalArgumentException("Product cannot be available when stock is 0!");
+
+        this.isAvailable = isAvailable;
+        this.stockQuantity = stockQuantity;
+        this.costPrice = costPrice;
+        this.salePrice = salePrice;
+    }
 }

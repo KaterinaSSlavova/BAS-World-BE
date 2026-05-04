@@ -1,7 +1,9 @@
 package basworld.backend.infrastructure.config.db.repository;
 
+import basworld.backend.domain.product.Product;
 import basworld.backend.infrastructure.config.db.entity.ProductDepotEntity;
 import basworld.backend.infrastructure.config.db.entity.ProductDepotId;
+import basworld.backend.infrastructure.config.db.entity.ProductEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -29,4 +31,7 @@ public interface ProductDepotJPARepository extends JpaRepository<ProductDepotEnt
     WHERE LOWER(p.name) LIKE LOWER(CONCAT('%', :query, '%'))
 """)
     List<ProductDepotEntity> search(String query);
+    List<ProductDepotEntity> findAllByProductId(Long productId);
+    boolean existsByProductIdAndDepotId(Long productId, Long depotId);
+    List<ProductDepotEntity> findByProductIdIn(List<Long> productIds);
 }
