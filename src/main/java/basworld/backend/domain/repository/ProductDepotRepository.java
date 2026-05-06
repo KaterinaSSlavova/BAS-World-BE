@@ -9,5 +9,8 @@ public interface ProductDepotRepository {
     boolean existsByProductIdAndDepotId(Long productId, Long depotId);
     List<ProductDepot> findAll();
     List<ProductDepot> search(String query);
-    List<ProductDepot> saveMultiple(List<ProductDepot> productDepots);
+    List<ProductDepot> saveAll(List<ProductDepot> productDepots);
+    List<ProductDepot> findByProductId(Long productId);
+    void deleteAll(List<ProductDepot> productDepots);
+    List<ProductDepot> findByProductIn(List<Long> productIds);
 }

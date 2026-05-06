@@ -3,6 +3,7 @@ package basworld.backend.business.impl.product;
 import basworld.backend.business.command.CreateProductCommand;
 import basworld.backend.business.command.ProductDepotCommand;
 import basworld.backend.business.exception.DepotNotFound;
+import basworld.backend.business.result.ProductWithDepotsResult;
 import basworld.backend.business.useCase.product.CreateProductUseCase;
 import basworld.backend.domain.depot.Depot;
 import basworld.backend.domain.depot.ProductDepot;
@@ -24,7 +25,7 @@ public class CreateProductUseCaseImpl implements CreateProductUseCase {
     private final DepotRepository depotRepository;
     private final ProductDepotRepository productDepotRepository;
     private final BrandRepository brandRepository;
-    public List<ProductDepot> createProduct(CreateProductCommand request) {
+    public ProductWithDepotsResult createProduct(CreateProductCommand request) {
         if (request == null) {
             throw new IllegalArgumentException("Request cannot be null!");
         }
@@ -60,7 +61,8 @@ public class CreateProductUseCaseImpl implements CreateProductUseCase {
                     command.getCostPrice(), command.getSalePrice());
             productDepots.add(productDepot);
         }
-        return productDepotRepository.saveMultiple(productDepots);
+        List<ProductDepot> savedProductDepots = productDepotRepository.saveAll(productDepots);
+        return new ProductWithDepotsResult(savedProduct, savedProductDepots);
     }
 
 }

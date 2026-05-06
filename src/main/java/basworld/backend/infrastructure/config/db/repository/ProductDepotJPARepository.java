@@ -29,4 +29,7 @@ public interface ProductDepotJPARepository extends JpaRepository<ProductDepotEnt
     WHERE LOWER(p.name) LIKE LOWER(CONCAT('%', :query, '%'))
 """)
     List<ProductDepotEntity> search(String query);
+    List<ProductDepotEntity> findAllByProductId(Long productId);
+    boolean existsByProductIdAndDepotId(Long productId, Long depotId);
+    List<ProductDepotEntity> findByProductIdIn(List<Long> productIds);
 }

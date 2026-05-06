@@ -1,9 +1,8 @@
 package basworld.backend.business.useCase.product;
 
 import basworld.backend.business.command.CreateProductCommand;
-import basworld.backend.domain.depot.ProductDepot;
-import java.util.List;
+import basworld.backend.business.result.ProductWithDepotsResult;
 
 public interface CreateProductUseCase {
-    List<ProductDepot> createProduct(CreateProductCommand request);
+    ProductWithDepotsResult createProduct(CreateProductCommand request);
 }

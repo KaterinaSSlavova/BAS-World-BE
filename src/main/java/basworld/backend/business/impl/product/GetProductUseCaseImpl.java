@@ -1,6 +1,7 @@
-package basworld.backend.business.impl;
+package basworld.backend.business.impl.product;
 
-import basworld.backend.business.useCase.GetProductUseCase;
+import basworld.backend.business.exception.ProductNotFound;
+import basworld.backend.business.useCase.product.GetProductUseCase;
 import basworld.backend.domain.product.Product;
 import basworld.backend.domain.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,6 @@ public class GetProductUseCaseImpl implements GetProductUseCase {
 
     @Override
     public Product getProductById(long id) {
-        return productRepository.findById(id).orElseThrow(() -> new IllegalStateException("Product not found!"));
+        return productRepository.findById(id).orElseThrow(() -> new ProductNotFound("Product not found!"));
     }
 }

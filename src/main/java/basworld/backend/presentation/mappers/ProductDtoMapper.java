@@ -1,7 +1,7 @@
 package basworld.backend.presentation.mappers;
 
 import basworld.backend.domain.product.Product;
-import basworld.backend.presentation.dto.ProductPublicData;
+import basworld.backend.presentation.dto.product.ProductPublicData;
 
 public class ProductDtoMapper {
     public static ProductPublicData toProductPublicData(Product product) {

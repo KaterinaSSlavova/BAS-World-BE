@@ -1,6 +1,8 @@
-package basworld.backend.presentation.dto;
+package basworld.backend.presentation.dto.product;
 
 import basworld.backend.domain.product.ProductStatus;
+import basworld.backend.presentation.dto.CategoryPublicData;
+import basworld.backend.presentation.dto.TypePublicData;
 import basworld.backend.presentation.dto.brand.BrandResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package basworld.backend.business.useCase;
+package basworld.backend.business.useCase.product;
 
 import basworld.backend.domain.product.Product;
 
