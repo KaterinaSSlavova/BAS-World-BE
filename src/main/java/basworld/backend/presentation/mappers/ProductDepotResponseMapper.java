@@ -15,8 +15,7 @@ public class ProductDepotResponseMapper {
                 .sku(product.getSku())
                 .productName(product.getName())
                 .description(product.getDescription())
-                .brand(product.getBrand())
-                .price(product.getPrice())
+                .brand(product.getBrand().getName())
                 .status(product.getStatus())
 
                 .type(product.getType() != null
@@ -34,7 +33,7 @@ public class ProductDepotResponseMapper {
                         : null)
                 .depotId(productDepot.getDepot().getId())
 
-                .depotName(productDepot.getDepot().getName())
+                .depotName(productDepot.getDepot().getDepotName())
                 .stockQuantity(productDepot.getStockQuantity())
                 .available(productDepot.isAvailable())
                 .build();

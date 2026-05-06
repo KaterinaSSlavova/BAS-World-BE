@@ -1,5 +1,8 @@
 package basworld.backend.presentation.controller;
 import basworld.backend.business.useCase.*;
+import basworld.backend.business.useCase.category.GetCategoryUseCase;
+import basworld.backend.business.useCase.depot.GetDepotUseCase;
+import basworld.backend.business.useCase.type.GetTypeUseCase;
 import basworld.backend.domain.depot.ProductDepot;
 import basworld.backend.domain.product.Product;
 import basworld.backend.presentation.dto.ProductDepotResponse;
@@ -47,8 +50,7 @@ public class ProductDepotController {
                 existingProduct.getSku(),
                 request.getName(),
                 request.getDescription(),
-                request.getBrand(),
-                request.getPrice(),
+                null,
                 request.getStatus(),
                 getTypeUseCase.findById(request.getTypeId()),
                 getCategoryUseCase.findById(request.getCategoryId())

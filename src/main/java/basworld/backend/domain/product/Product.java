@@ -1,12 +1,10 @@
 package basworld.backend.domain.product;
 
+import basworld.backend.domain.brand.Brand;
 import basworld.backend.domain.category.Category;
 import basworld.backend.domain.type.Type;
 import lombok.Builder;
 import lombok.Getter;
-
-import java.math.BigDecimal;
-
 
 @Getter
 public class Product {
@@ -15,8 +13,7 @@ public class Product {
     private String sku;
     private String name;
     private String description;
-    private String brand;
-    private BigDecimal price;
+    private Brand brand;
     private ProductStatus status;
     private Type type;
     private Category category;
@@ -25,19 +22,17 @@ public class Product {
     public Product(String sku,
                    String name,
                    String description,
-                   String brand,
-                   BigDecimal price,
+                   Brand brand,
                    ProductStatus status,
                    Type type,
                    Category category) {
 
-        validate(sku, name, description, brand, price, status, type, category);
+        validate(sku, name, description, brand, status, type, category);
 
         this.sku = sku;
         this.name = name;
         this.description = description;
         this.brand = brand;
-        this.price = price;
         this.status = status;
         this.type = type;
         this.category = category;
@@ -48,20 +43,18 @@ public class Product {
                    String sku,
                    String name,
                    String description,
-                   String brand,
-                   BigDecimal price,
+                   Brand brand,
                    ProductStatus status,
                    Type type,
                    Category category) {
 
-        validate(sku, name, description, brand, price, status, type, category);
+        validate(sku, name, description, brand, status, type, category);
 
         this.id = id;
         this.sku = sku;
         this.name = name;
         this.description = description;
         this.brand = brand;
-        this.price = price;
         this.status = status;
         this.type = type;
         this.category = category;
@@ -70,8 +63,7 @@ public class Product {
     private void validate(String sku,
                           String name,
                           String description,
-                          String brand,
-                          BigDecimal price,
+                          Brand brand,
                           ProductStatus status,
                           Type type,
                           Category category) {
@@ -88,12 +80,8 @@ public class Product {
             throw new IllegalArgumentException("Description must not be null or blank");
         }
 
-        if (brand == null || brand.isBlank()) {
+        if (brand == null) {
             throw new IllegalArgumentException("Brand must not be null or blank");
-        }
-
-        if (price == null || price.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new IllegalArgumentException("Price must be greater than 0");
         }
 
         if (status == null) {

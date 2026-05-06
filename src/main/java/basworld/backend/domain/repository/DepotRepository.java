@@ -6,8 +6,10 @@ import java.util.List;
 import java.util.Optional;
 
 public interface DepotRepository {
-    Depot createDepot(Depot depot);
+    Depot saveDepot(Depot depot);
     Optional<Depot> findById(Long id);
     boolean existsById(Long id);
+    boolean existsByNameAndArchivedFalse(String name);
     List<Depot> findAll();
+    List<Depot> findByMultipleIds(List<Long> ids);
 }

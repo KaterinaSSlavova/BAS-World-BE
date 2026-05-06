@@ -1,0 +1,1 @@
+ALTER TABLE type ALTER COLUMN parent_type_id DROP NOT NULL;

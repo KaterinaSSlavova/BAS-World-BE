@@ -4,6 +4,8 @@ package basworld.backend.infrastructure.config.db.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
+
 @Entity
 @Getter
 @Setter
@@ -31,4 +33,10 @@ public class ProductDepotEntity {
 
     @Column(name="stock_quantity")
     private Long stockQuantity;
+
+    @Column(name = "cost_price")
+    private BigDecimal costPrice;
+
+    @Column(name = "sale_price")
+    private BigDecimal salePrice;
 }

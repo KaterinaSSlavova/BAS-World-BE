@@ -17,25 +17,39 @@ public class DepotRepositoryImpl implements DepotRepository {
     private final jpaDepotRepository jpaDepotRepository;
 
     @Override
-    public Depot createDepot(Depot depot) {
+    public Depot saveDepot(Depot depot) {
         DepotEntity entity = DepotEntity.builder()
-                .depotName(depot.getDepotName()).Location(depot.getLocation()).build();
+                .id(depot.getId())
+                .depotName(depot.getDepotName())
+                .Location(depot.getLocation())
+                .archived(depot.isArchived())
+                .build();
         DepotEntity savedDepotEntity = jpaDepotRepository.save(entity);
         return DepotMapper.toDomain(savedDepotEntity);
     }
 
     @Override
     public Optional<Depot> findById(Long id) {
-        return jpaDepotRepository.findById(id).map(DepotMapper::toDomain);
+        return jpaDepotRepository.findById(id).filter(d -> !d.isArchived()).map(DepotMapper::toDomain);
     }
 
     @Override
     public List<Depot> findAll(){
-        return jpaDepotRepository.findAll().stream().map(DepotMapper::toDomain).toList();
+        return jpaDepotRepository.findAll().stream().filter(d -> !d.isArchived()).map(DepotMapper::toDomain).toList();
+    }
+
+    @Override
+    public boolean existsByNameAndArchivedFalse(String name){
+        return jpaDepotRepository.existsByDepotNameAndArchivedFalse(name);
     }
 
     @Override
     public boolean existsById(Long id) {
         return jpaDepotRepository.existsById(id);
+    }
+
+    @Override
+    public List<Depot> findByMultipleIds(List<Long> ids) {
+        return jpaDepotRepository.findByIdIn(ids).stream().map(DepotMapper::toDomain).toList();
     }
 }

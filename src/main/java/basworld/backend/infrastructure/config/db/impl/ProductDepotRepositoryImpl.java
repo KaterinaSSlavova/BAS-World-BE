@@ -46,4 +46,10 @@ public class ProductDepotRepositoryImpl implements ProductDepotRepository {
                 .map(ProductDepotMapper::toDomain)
                 .toList();
     }
+    public List<ProductDepot> saveMultiple(List<ProductDepot> productDepots) {
+        return productDepotJpaRepository.saveAll(productDepots.stream().map(ProductDepotMapper::toEntity).toList())
+                .stream()
+                .map(ProductDepotMapper::toDomain)
+                .toList();
+    }
 }
