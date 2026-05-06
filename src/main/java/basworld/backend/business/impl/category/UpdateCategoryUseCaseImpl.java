@@ -21,7 +21,7 @@ public class UpdateCategoryUseCaseImpl implements UpdateCategoryUseCase {
             throw new IllegalArgumentException("Category with name '" + category.getName() + "' already exists");
         }
 
-        Category parent = existing.getParent();
+        Category parent = null;
         if (parentId != null) {
             parent = categoryRepository.findById(parentId)
                     .orElseThrow(() -> new IllegalArgumentException("Parent category not found"));

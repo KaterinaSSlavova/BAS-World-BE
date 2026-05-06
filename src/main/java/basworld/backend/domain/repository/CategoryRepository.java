@@ -12,4 +12,6 @@ public interface CategoryRepository {
     Category save(Category category);
     void delete(Category category);
     boolean existsByNameAndIsArchivedFalse(String name);
+
+    //Category saveCategory(Category parent);
 }
