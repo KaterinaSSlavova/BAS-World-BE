@@ -8,6 +8,7 @@ import lombok.Getter;
 @AllArgsConstructor
 @Builder
 public class DepotOverviewDTO {
+    private Long id;
     private String depotName;
     private String location;
     private Long numberOfProducts;
