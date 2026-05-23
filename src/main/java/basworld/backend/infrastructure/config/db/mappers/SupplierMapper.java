@@ -1,8 +1,6 @@
 package basworld.backend.infrastructure.config.db.mappers;
 
-import basworld.backend.domain.brand.Brand;
 import basworld.backend.domain.supplier.Supplier;
-import basworld.backend.infrastructure.config.db.entity.BrandEntity;
 import basworld.backend.infrastructure.config.db.entity.SupplierEntity;
 
 public class SupplierMapper {

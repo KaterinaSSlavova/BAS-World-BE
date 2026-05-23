@@ -1,8 +1,6 @@
 package basworld.backend.infrastructure.config.db.mappers;
 
-import basworld.backend.domain.supplier.Supplier;
 import basworld.backend.domain.vehicleType.VehicleType;
-import basworld.backend.infrastructure.config.db.entity.SupplierEntity;
 import basworld.backend.infrastructure.config.db.entity.VehicleTypeEntity;
 
 public class VehicleTypeMapper {
