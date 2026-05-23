@@ -19,4 +19,7 @@ public class ProductDepotRequest {
     @NotNull
     private BigDecimal salePrice;
     private boolean available;
+
+    @NotNull
+    private Integer stockThreshold;
 }

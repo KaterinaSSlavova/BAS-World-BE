@@ -1,6 +1,7 @@
 package basworld.backend.domain.repository;
 
 import basworld.backend.domain.depot.ProductDepot;
+import basworld.backend.infrastructure.config.db.entity.ProductDepotEntity;
 
 import java.util.List;
 
@@ -13,4 +14,5 @@ public interface ProductDepotRepository {
     List<ProductDepot> findByProductId(Long productId);
     void deleteAll(List<ProductDepot> productDepots);
     List<ProductDepot> findByProductIn(List<Long> productIds);
+    List<ProductDepot> findAllWithLowStock();
 }

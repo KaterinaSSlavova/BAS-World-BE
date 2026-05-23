@@ -38,6 +38,7 @@ public class ProductController {
                         .available(r.isAvailable())
                         .costPrice(r.getCostPrice())
                         .salePrice(r.getSalePrice())
+                        .stockThreshold(r.getStockThreshold())
                         .build()
                 )
                 .toList();
@@ -52,15 +53,17 @@ public class ProductController {
     public ResponseEntity<ProductWithDepotsResponse> updateProduct(@PathVariable("productId") Long productId,
                                                                             @Validated @RequestBody UpdateProductRequest updateProductRequest){
         List<ProductDepotCommand> productDepotCommands = updateProductRequest.getProductDepots()
-                .stream()
-                .map(r -> ProductDepotCommand.builder()
-                        .depotId(r.getDepotId())
-                        .stockQuantity(r.getStockQuantity())
-                        .available(r.isAvailable())
-                        .costPrice(r.getCostPrice())
-                        .salePrice(r.getSalePrice())
-                        .build()
-                )
+                .stream().map(r -> {
+                    System.out.println("stockThreshold from request: " + r.getStockThreshold());
+                    return ProductDepotCommand.builder()
+                            .depotId(r.getDepotId())
+                            .stockQuantity(r.getStockQuantity())
+                            .available(r.isAvailable())
+                            .costPrice(r.getCostPrice())
+                            .salePrice(r.getSalePrice())
+                            .stockThreshold(r.getStockThreshold())
+                            .build();
+                })
                 .toList();
         UpdateProductCommand updateProductCommand = new UpdateProductCommand(updateProductRequest.getName(),
                 updateProductRequest.getDescription(), updateProductRequest.getBrandId(), updateProductRequest.getStatus(),
