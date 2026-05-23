@@ -12,6 +12,7 @@ public class ProductDepotDtoMapper {
                 .isAvailable(productDepot.isAvailable())
                 .costPrice(productDepot.getCostPrice())
                 .salePrice(productDepot.getSalePrice())
+                .stockThreshold(productDepot.getStockThreshold())
                 .build();
     }
 }

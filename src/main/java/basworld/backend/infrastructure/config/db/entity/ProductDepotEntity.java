@@ -39,4 +39,7 @@ public class ProductDepotEntity {
 
     @Column(name = "sale_price")
     private BigDecimal salePrice;
+
+    @Column(name= "stock_threshold")
+    private Integer stockThreshold;
 }

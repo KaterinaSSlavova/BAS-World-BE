@@ -17,4 +17,5 @@ public class ProductDepotPublicData {
     private Long stockQuantity;
     private BigDecimal costPrice;
     private BigDecimal salePrice;
+    private Integer stockThreshold;
 }

@@ -5,6 +5,7 @@ import basworld.backend.business.command.UpdateProductCommand;
 import basworld.backend.business.exception.DepotNotFound;
 import basworld.backend.business.exception.ProductNotFound;
 import basworld.backend.business.result.ProductWithDepotsResult;
+import basworld.backend.business.service.StockAlertService;
 import basworld.backend.business.useCase.product.UpdateProductUseCase;
 import basworld.backend.domain.depot.Depot;
 import basworld.backend.domain.depot.ProductDepot;
@@ -30,6 +31,7 @@ public class UpdateProductUseCaseImpl implements UpdateProductUseCase {
     private final DepotRepository depotRepository;
     private final ProductDepotRepository productDepotRepository;
     private final BrandRepository brandRepository;
+    private final StockAlertService alertService;
 
     @Override
     public ProductWithDepotsResult updateProduct(Long productId, UpdateProductCommand command) {
@@ -73,7 +75,7 @@ public class UpdateProductUseCaseImpl implements UpdateProductUseCase {
 
             if (productDepot != null) {
                 // update existing product depots
-                productDepot.update(cmd.isAvailable(), cmd.getStockQuantity(), cmd.getCostPrice(), cmd.getSalePrice());
+                productDepot.update(cmd.isAvailable(), cmd.getStockQuantity(), cmd.getCostPrice(), cmd.getSalePrice(), cmd.getStockThreshold());
 
             } else {
                 // new product depots
@@ -86,7 +88,8 @@ public class UpdateProductUseCaseImpl implements UpdateProductUseCase {
                         cmd.isAvailable(),
                         cmd.getStockQuantity(),
                         cmd.getCostPrice(),
-                        cmd.getSalePrice()
+                        cmd.getSalePrice(),
+                        cmd.getStockThreshold()
                 );
             }
 
@@ -100,6 +103,8 @@ public class UpdateProductUseCaseImpl implements UpdateProductUseCase {
         productDepotRepository.deleteAll(toDelete);
 
         var savedProductDepots = productDepotRepository.saveAll(result);
+
+        alertService.notifyStockChange();
 
         return new ProductWithDepotsResult(savedProduct, savedProductDepots);
 

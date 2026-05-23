@@ -15,4 +15,5 @@ public class ProductDepotCommand {
     private BigDecimal costPrice;
     private BigDecimal salePrice;
     private boolean available;
+    private Integer stockThreshold;
 }

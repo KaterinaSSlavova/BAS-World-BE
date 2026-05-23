@@ -13,6 +13,7 @@ public class ProductDepotMapper {
                 .stockQuantity(entity.getStockQuantity())
                 .costPrice(entity.getCostPrice())
                 .salePrice(entity.getSalePrice())
+                .stockThreshold(entity.getStockThreshold())
                 .build();
     }
 
@@ -25,6 +26,7 @@ public class ProductDepotMapper {
                 .stockQuantity(domain.getStockQuantity())
                 .costPrice(domain.getCostPrice())
                 .salePrice(domain.getSalePrice())
+                .stockThreshold(domain.getStockThreshold())
                 .build();
     }
 }

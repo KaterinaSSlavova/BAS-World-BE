@@ -58,7 +58,7 @@ public class CreateProductUseCaseImpl implements CreateProductUseCase {
                     .findFirst()
                     .orElseThrow(() -> new DepotNotFound("Depot not found"));
             var productDepot = new ProductDepot(savedProduct, depot, command.isAvailable(), command.getStockQuantity(),
-                    command.getCostPrice(), command.getSalePrice());
+                    command.getCostPrice(), command.getSalePrice(), command.getStockThreshold());
             productDepots.add(productDepot);
         }
         List<ProductDepot> savedProductDepots = productDepotRepository.saveAll(productDepots);
