@@ -1,12 +1,14 @@
 package basworld.backend.domain.supplier;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 public class Supplier {
     private Long id;
     private String name;
     private String picture;
+    @Setter
     private boolean isArchived;
 
     public Supplier(Long id, String name, String picture, boolean isArchived) {

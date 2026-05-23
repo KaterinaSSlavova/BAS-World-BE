@@ -1,11 +1,13 @@
 package basworld.backend.domain.vehicleType;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 public class VehicleType {
     private Long id;
     private String name;
+    @Setter
     private boolean isArchived;
     public VehicleType(Long id, String name, boolean isArchived) {
         if (name.isEmpty()){

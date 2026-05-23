@@ -7,6 +7,7 @@ import basworld.backend.infrastructure.config.db.repository.jpaVehicleTypeReposi
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -16,5 +17,17 @@ public class VehicleTypeRepositoryImpl implements VehicleTypeRepository {
     @Override
     public Optional<VehicleType> findById(Long id) {
         return jpaRepository.findById(id).map(VehicleTypeMapper::toDomain);
+    }
+    @Override
+    public VehicleType saveVehicleType(VehicleType vehicleType) {
+        return VehicleTypeMapper.toDomain(jpaRepository.save(VehicleTypeMapper.toEntity(vehicleType)));
+    }
+    @Override
+    public List<VehicleType> findAll() {
+        return jpaRepository.findAll().stream().map(VehicleTypeMapper::toDomain).toList();
+    }
+    @Override
+    public boolean existsByNameAndArchivedFalse(String name) {
+        return jpaRepository.existsByNameAndArchivedFalse(name);
     }
 }
