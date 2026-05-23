@@ -42,10 +42,10 @@ class UpdateProductUseCaseImplTest {
 
         // --- Command setup ---
         ProductDepotCommand existingDepotCmd =
-                new ProductDepotCommand(1L, 10L, BigDecimal.valueOf(100), BigDecimal.valueOf(120), true);
+                new ProductDepotCommand(1L, 10L, BigDecimal.valueOf(100), BigDecimal.valueOf(120), true, 10);
 
         ProductDepotCommand newDepotCmd =
-                new ProductDepotCommand(2L, 20L, BigDecimal.valueOf(100), BigDecimal.valueOf(120), true);
+                new ProductDepotCommand(2L, 20L, BigDecimal.valueOf(100), BigDecimal.valueOf(120), true, 10);
 
         UpdateProductCommand command = new UpdateProductCommand(
                 "UpdatedName",
@@ -105,7 +105,7 @@ class UpdateProductUseCaseImplTest {
         assertEquals(2, result.depots().size());
 
         // ✔ existing depot updated
-        verify(existingPd).update(true, 10L, BigDecimal.valueOf(100), BigDecimal.valueOf(120));
+        verify(existingPd).update(true, 10L, BigDecimal.valueOf(100), BigDecimal.valueOf(120), 10);
 
         // ✔ product updated
         verify(product).update(
@@ -143,7 +143,7 @@ class UpdateProductUseCaseImplTest {
         Product product = mock(Product.class);
 
         ProductDepotCommand cmd =
-                new ProductDepotCommand(99L, 1L, BigDecimal.valueOf(2), BigDecimal.valueOf(3), true);
+                new ProductDepotCommand(99L, 1L, BigDecimal.valueOf(2), BigDecimal.valueOf(3), true, 10);
 
         UpdateProductCommand command = new UpdateProductCommand(
                 "name", "desc", 1L, ProductStatus.Active, 1L, 1L,
