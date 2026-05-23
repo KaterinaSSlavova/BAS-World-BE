@@ -3,7 +3,6 @@ package basworld.backend.business.impl.vehicleType;
 import basworld.backend.business.useCase.vehicleType.CreateVehicleTypeUseCase;
 import basworld.backend.domain.repository.VehicleTypeRepository;
 import basworld.backend.domain.vehicleType.VehicleType;
-import basworld.backend.presentation.dto.vehicleType.VehicleTypeResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
