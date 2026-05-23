@@ -99,6 +99,7 @@ class ProductControllerTest {
         depotItem.put("available", true);
         depotItem.put("costPrice", 100);
         depotItem.put("salePrice", 150);
+        depotItem.put("stockThreshold", 10);
 
         request.put("productDepots", List.of(depotItem));
 
@@ -235,7 +236,8 @@ class ProductControllerTest {
                 true,
                 10L,
                 BigDecimal.valueOf(100),
-                BigDecimal.valueOf(150)
+                BigDecimal.valueOf(150),
+                10
         );
 
         productDepotRepository.save(pd);

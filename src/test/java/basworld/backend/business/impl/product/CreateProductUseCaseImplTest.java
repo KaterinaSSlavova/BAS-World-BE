@@ -39,8 +39,7 @@ class CreateProductUseCaseImplTest {
     @BeforeEach
     void setup() {
         ProductDepotCommand depotCommand = new ProductDepotCommand(
-                1L, 10L, BigDecimal.valueOf(100), BigDecimal.valueOf(120), true
-        );
+                1L, 10L, BigDecimal.valueOf(100), BigDecimal.valueOf(120), true, 10);
 
         request = new CreateProductCommand(
                 "SKU123",
