@@ -4,6 +4,7 @@ import basworld.backend.business.command.ProductDepotCommand;
 import basworld.backend.business.command.UpdateProductCommand;
 import basworld.backend.business.exception.ProductNotFound;
 import basworld.backend.business.result.ProductWithDepotsResult;
+import basworld.backend.business.service.StockAlertService;
 import basworld.backend.domain.brand.Brand;
 import basworld.backend.domain.category.Category;
 import basworld.backend.domain.depot.Depot;
@@ -31,6 +32,7 @@ class UpdateProductUseCaseImplTest {
     @Mock private DepotRepository depotRepository;
     @Mock private ProductDepotRepository productDepotRepository;
     @Mock private BrandRepository brandRepository;
+    @Mock private StockAlertService stockAlertService;
 
     @InjectMocks
     private UpdateProductUseCaseImpl useCase;
