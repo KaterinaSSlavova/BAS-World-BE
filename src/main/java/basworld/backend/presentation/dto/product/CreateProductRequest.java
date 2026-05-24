@@ -24,6 +24,8 @@ public class CreateProductRequest {
     private Long typeId;
     @NotNull
     private Long categoryId;
+    @NotNull
+    private Long vehicleTypeId;
 
     //depot
     List<ProductDepotRequest> productDepots;

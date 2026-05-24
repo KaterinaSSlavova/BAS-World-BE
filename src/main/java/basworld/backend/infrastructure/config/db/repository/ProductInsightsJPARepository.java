@@ -45,16 +45,19 @@ public interface ProductInsightsJPARepository extends JpaRepository<ProductDepot
     long countProductsOverall();
 
     @Query("""
-        SELECT COUNT(DISTINCT pd.product.id)
-        FROM ProductDepotEntity pd
-        WHERE pd.stockQuantity < 5
+            SELECT COUNT(DISTINCT pd.product.id)
+            FROM ProductDepotEntity pd
+            WHERE pd.stockQuantity <= pd.stockThreshold
+            AND pd.product.status NOT IN ('Inactive', 'Archived')
     """)
     long countLowStockProductsOverall();
 
     @Query("""
         SELECT COUNT(pd)
         FROM ProductDepotEntity pd
-        WHERE pd.isAvailable = false
+        JOIN pd.product p
+        WHERE pd.stockQuantity = 0
+        AND p.status NOT IN ('Inactive', 'Archived')
     """)
     long countUnavailableItemsOverall();
 

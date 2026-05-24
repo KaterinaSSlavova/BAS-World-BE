@@ -64,4 +64,9 @@ public class ProductDepotRepositoryImpl implements ProductDepotRepository {
     public List<ProductDepot> findByProductIn(List<Long> productIds){
         return productDepotJpaRepository.findByProductIdIn(productIds).stream().map(ProductDepotMapper::toDomain).toList();
     }
+
+    @Override
+    public List<ProductDepot> findAllWithLowStock(){
+        return productDepotJpaRepository.findAllWithLowStock().stream().map(ProductDepotMapper::toDomain).toList();
+    }
 }

@@ -18,5 +18,10 @@ public class ProductDepotRequest {
     private BigDecimal costPrice;
     @NotNull
     private BigDecimal salePrice;
-    private boolean available;
+
+    @NotNull
+    private Integer stockThreshold;
+
+    @NotNull
+    private Long supplierId;
 }
