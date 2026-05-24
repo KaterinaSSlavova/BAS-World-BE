@@ -102,7 +102,7 @@ class ProductDepotControllerTest {
 
     @Test
     void getStockAlerts_shouldReturnEmptyList_whenNoLowStock() throws Exception {
-        saveProductDepot(100, 5); // stock well above threshold
+        saveProductDepot(100, 5);
 
         mockMvc.perform(get(baseUrl + "/stock-alerts"))
                 .andExpect(status().isOk())
@@ -112,7 +112,7 @@ class ProductDepotControllerTest {
 
     @Test
     void getStockAlerts_shouldReturnAlerts_whenStockIsBelowThreshold() throws Exception {
-        saveProductDepot(3, 10); // stock below threshold → low stock
+        saveProductDepot(3, 10);
 
         mockMvc.perform(get(baseUrl + "/stock-alerts"))
                 .andExpect(status().isOk())
@@ -122,7 +122,7 @@ class ProductDepotControllerTest {
 
     @Test
     void getStockAlerts_shouldReturnOutOfStock_whenStockIsZero() throws Exception {
-        saveProductDepot(0, 10); // stock is zero → out of stock
+        saveProductDepot(0, 10);
 
         mockMvc.perform(get(baseUrl + "/stock-alerts"))
                 .andExpect(status().isOk())
