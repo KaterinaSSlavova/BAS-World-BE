@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service @RequiredArgsConstructor
 public class GetVehicleTypeByIdUseCaseImpl implements GetVehicleTypeByIdUseCase {
-    private VehicleTypeRepository vehicleTypeRepository;
+    private final VehicleTypeRepository vehicleTypeRepository;
     public VehicleType getVehicleTypeById(Long id) {
         if (id <= 0){
             throw new IllegalArgumentException("Invalid id!");

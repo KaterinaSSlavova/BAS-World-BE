@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service @RequiredArgsConstructor
 public class GetAllVehicleTypeUseCaseImpl implements GetAllVehicleTypeUseCase {
-    private VehicleTypeRepository vehicleTypeRepository;
+    private final VehicleTypeRepository vehicleTypeRepository;
     public List<VehicleType> getAllVehicleType(){
         return vehicleTypeRepository.findAll();
     }

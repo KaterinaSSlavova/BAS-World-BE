@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service @RequiredArgsConstructor
 public class GetAllSupplierUseCaseImpl implements GetAllSupplierUseCase {
-    private SupplierRepository supplierRepository;
+    private final SupplierRepository supplierRepository;
 
     @Override
     public List<Supplier> getAllSuppliers() {

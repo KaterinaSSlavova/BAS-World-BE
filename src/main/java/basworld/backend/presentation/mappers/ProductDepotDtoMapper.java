@@ -13,6 +13,7 @@ public class ProductDepotDtoMapper {
                 .costPrice(productDepot.getCostPrice())
                 .salePrice(productDepot.getSalePrice())
                 .stockThreshold(productDepot.getStockThreshold())
+                .supplier(SupplierMapper.toSupplierResponse(productDepot.getSupplier()))
                 .build();
     }
 }
