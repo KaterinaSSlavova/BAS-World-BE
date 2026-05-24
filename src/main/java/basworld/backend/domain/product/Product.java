@@ -3,6 +3,7 @@ package basworld.backend.domain.product;
 import basworld.backend.domain.brand.Brand;
 import basworld.backend.domain.category.Category;
 import basworld.backend.domain.type.Type;
+import basworld.backend.domain.vehicleType.VehicleType;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -17,6 +18,7 @@ public class Product {
     private ProductStatus status;
     private Type type;
     private Category category;
+    private VehicleType vehicleType;
 
 
     public Product(String sku,
@@ -25,9 +27,10 @@ public class Product {
                    Brand brand,
                    ProductStatus status,
                    Type type,
-                   Category category) {
+                   Category category,
+                   VehicleType vehicleType ) {
 
-        validate(sku, name, description, brand, status, type, category);
+        validate(sku, name, description, brand, status, type, category, vehicleType);
 
         this.sku = sku;
         this.name = name;
@@ -36,6 +39,7 @@ public class Product {
         this.status = status;
         this.type = type;
         this.category = category;
+        this.vehicleType = vehicleType;
     }
 
     @Builder
@@ -46,9 +50,10 @@ public class Product {
                    Brand brand,
                    ProductStatus status,
                    Type type,
-                   Category category) {
+                   Category category,
+                   VehicleType vehicleType) {
 
-        validate(sku, name, description, brand, status, type, category);
+        validate(sku, name, description, brand, status, type, category, vehicleType);
 
         this.id = id;
         this.sku = sku;
@@ -58,6 +63,7 @@ public class Product {
         this.status = status;
         this.type = type;
         this.category = category;
+        this.vehicleType = vehicleType;
     }
 
     private void validate(String sku,
@@ -66,7 +72,8 @@ public class Product {
                           Brand brand,
                           ProductStatus status,
                           Type type,
-                          Category category) {
+                          Category category,
+                          VehicleType vehicleType ) {
 
         if (sku == null || sku.isBlank()) {
             throw new IllegalArgumentException("SKU must not be null or blank");
@@ -95,6 +102,10 @@ public class Product {
         if (category == null) {
             throw new IllegalArgumentException("Category must not be null");
         }
+
+        if (vehicleType == null) {
+            throw new IllegalArgumentException("Vehicle type must not be null");
+        }
     }
 
     public void update(String name,
@@ -102,9 +113,10 @@ public class Product {
                        Brand brand,
                        ProductStatus status,
                        Type type,
-                       Category category) {
+                       Category category,
+                       VehicleType vehicleType) {
 
-        validate(this.sku, name, description, brand, status, type, category);
+        validate(this.sku, name, description, brand, status, type, category, vehicleType);
 
         this.name = name;
         this.description = description;
@@ -112,6 +124,7 @@ public class Product {
         this.status = status;
         this.type = type;
         this.category = category;
+        this.vehicleType = vehicleType;
     }
 
     public void setId(Long id) {

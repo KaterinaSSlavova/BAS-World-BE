@@ -12,44 +12,34 @@ import basworld.backend.infrastructure.config.db.entity.TypeEntity;
 public class ProductMapper {
 
     public static Product toDomain(ProductEntity entity) {
-        if (entity == null) {
-            return null;
-        }
-
-        Type type = TypeMapper.toDomain(entity.getType());
-        Category category = CategoryMapper.toDomain(entity.getCategory());
-        Brand brand =  BrandMapper.toDomain(entity.getBrand());
+        if (entity == null) return null;
 
         return Product.builder()
                 .id(entity.getId())
                 .sku(entity.getSku())
                 .name(entity.getName())
                 .description(entity.getDescription())
-                .brand(brand)
+                .brand(BrandMapper.toDomain(entity.getBrand()))
                 .status(entity.getStatus())
-                .type(type)
-                .category(category)
+                .type(TypeMapper.toDomain(entity.getType()))
+                .category(CategoryMapper.toDomain(entity.getCategory()))
+                .vehicleType(VehicleTypeMapper.toDomain(entity.getVehicleType()))
                 .build();
     }
 
     public static ProductEntity toEntity(Product product) {
-        if (product == null) {
-            return null;
-        }
-
-        TypeEntity typeEntity = TypeMapper.toEntity(product.getType());
-        CategoryEntity categoryEntity = CategoryMapper.toEntity(product.getCategory());
-        BrandEntity brandEntity =  BrandMapper.toEntity(product.getBrand());
+        if (product == null) return null;
 
         return ProductEntity.builder()
                 .id(product.getId())
                 .sku(product.getSku())
                 .name(product.getName())
                 .description(product.getDescription())
-                .brand(brandEntity)
+                .brand(BrandMapper.toEntity(product.getBrand()))
                 .status(product.getStatus())
-                .type(typeEntity)
-                .category(categoryEntity)
+                .type(TypeMapper.toEntity(product.getType()))
+                .category(CategoryMapper.toEntity(product.getCategory()))
+                .vehicleType(VehicleTypeMapper.toEntity(product.getVehicleType()))
                 .build();
     }
 }

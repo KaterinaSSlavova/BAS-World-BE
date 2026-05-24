@@ -40,6 +40,11 @@ public class ProductDepotEntity {
     @Column(name = "sale_price")
     private BigDecimal salePrice;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "supplier_id")
+    private SupplierEntity supplier;
+}
+
     @Column(name= "stock_threshold")
     private Integer stockThreshold;
 }

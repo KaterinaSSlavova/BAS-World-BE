@@ -22,4 +22,7 @@ public class ProductDepotRequest {
 
     @NotNull
     private Integer stockThreshold;
+
+    @NotNull
+    private Long supplierId;
 }

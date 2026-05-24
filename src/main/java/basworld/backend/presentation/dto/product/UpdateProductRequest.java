@@ -28,5 +28,11 @@ public class UpdateProductRequest {
     @NotNull
     private Long categoryId;
 
+    @NotNull
+    Long vehicleTypeId;
+
+    @NotNull
+    private Long supplierId;
+
     List<ProductDepotRequest> productDepots;
 }

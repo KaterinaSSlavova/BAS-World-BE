@@ -1,6 +1,7 @@
 package basworld.backend.presentation.dto.product;
 
 import basworld.backend.presentation.dto.depot.DepotResponse;
+import basworld.backend.presentation.dto.supplier.SupplierResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,4 +19,6 @@ public class ProductDepotPublicData {
     private BigDecimal costPrice;
     private BigDecimal salePrice;
     private Integer stockThreshold;
+    private SupplierResponse supplier;
+
 }

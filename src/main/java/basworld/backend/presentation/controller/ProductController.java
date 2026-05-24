@@ -39,20 +39,32 @@ public class ProductController {
                         .costPrice(r.getCostPrice())
                         .salePrice(r.getSalePrice())
                         .stockThreshold(r.getStockThreshold())
+                        .supplierId(r.getSupplierId())
                         .build()
                 )
                 .toList();
         CreateProductCommand createProductCommand = new CreateProductCommand(createProductRequest.getSku(), createProductRequest.getName(),
                 createProductRequest.getDescription(), createProductRequest.getBrandId(), createProductRequest.getStatus(),
-                createProductRequest.getTypeId(), createProductRequest.getCategoryId(), productDepotCommands);
+                createProductRequest.getTypeId(), createProductRequest.getCategoryId(), createProductRequest.getVehicleTypeId(),  productDepotCommands);
         ProductWithDepotsResult productWithDepotsResult = createProductUseCase.createProduct(createProductCommand);
         return ResponseEntity.ok().body(ProductWithDepotsDtoMapper.toResponse(productWithDepotsResult.product(),
                 productWithDepotsResult.depots()));
     }
+
     @PutMapping("/{productId}")
     public ResponseEntity<ProductWithDepotsResponse> updateProduct(@PathVariable("productId") Long productId,
                                                                             @Validated @RequestBody UpdateProductRequest updateProductRequest){
         List<ProductDepotCommand> productDepotCommands = updateProductRequest.getProductDepots()
+                .stream()
+                .map(r -> ProductDepotCommand.builder()
+                        .depotId(r.getDepotId())
+                        .stockQuantity(r.getStockQuantity())
+                        .available(r.isAvailable())
+                        .costPrice(r.getCostPrice())
+                        .salePrice(r.getSalePrice())
+                        .supplierId(r.getSupplierId())
+                        .build()
+                )
                 .stream().map(r -> {
                     System.out.println("stockThreshold from request: " + r.getStockThreshold());
                     return ProductDepotCommand.builder()
@@ -65,9 +77,19 @@ public class ProductController {
                             .build();
                 })
                 .toList();
-        UpdateProductCommand updateProductCommand = new UpdateProductCommand(updateProductRequest.getName(),
-                updateProductRequest.getDescription(), updateProductRequest.getBrandId(), updateProductRequest.getStatus(),
-                updateProductRequest.getTypeId(), updateProductRequest.getCategoryId(), productDepotCommands);
+
+        UpdateProductCommand updateProductCommand = new UpdateProductCommand(
+                updateProductRequest.getName(),
+                updateProductRequest.getDescription(),
+                updateProductRequest.getBrandId(),
+                updateProductRequest.getStatus(),
+                updateProductRequest.getTypeId(),
+                updateProductRequest.getCategoryId(),
+                updateProductRequest.getVehicleTypeId(),
+                updateProductRequest.getSupplierId(),
+                productDepotCommands
+        );
+
         ProductWithDepotsResult productWithDepotsResult = updateProductUseCase.updateProduct(productId, updateProductCommand);
         return ResponseEntity.ok().body(ProductWithDepotsDtoMapper.toResponse(productWithDepotsResult.product(),
                 productWithDepotsResult.depots()));

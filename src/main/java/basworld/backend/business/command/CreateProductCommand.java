@@ -18,6 +18,7 @@ public class CreateProductCommand {
     private ProductStatus status;
     private Long typeId;
     private Long categoryId;
+    private Long vehicleTypeId;
 
     //depot
     private List<ProductDepotCommand> productDepots;

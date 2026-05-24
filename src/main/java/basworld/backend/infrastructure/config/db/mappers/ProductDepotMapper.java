@@ -14,6 +14,7 @@ public class ProductDepotMapper {
                 .costPrice(entity.getCostPrice())
                 .salePrice(entity.getSalePrice())
                 .stockThreshold(entity.getStockThreshold())
+                .supplier(SupplierMapper.toDomain(entity.getSupplier()))
                 .build();
     }
 
@@ -27,6 +28,7 @@ public class ProductDepotMapper {
                 .costPrice(domain.getCostPrice())
                 .salePrice(domain.getSalePrice())
                 .stockThreshold(domain.getStockThreshold())
+                .supplier(SupplierMapper.toEntity(domain.getSupplier()))
                 .build();
     }
 }
