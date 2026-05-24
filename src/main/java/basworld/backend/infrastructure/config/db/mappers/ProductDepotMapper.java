@@ -9,7 +9,6 @@ public class ProductDepotMapper {
         return ProductDepot.builder()
                 .product(ProductMapper.toDomain(entity.getProduct()))
                 .depot(DepotMapper.toDomain(entity.getDepot()))
-                .isAvailable(entity.getIsAvailable())
                 .stockQuantity(entity.getStockQuantity())
                 .costPrice(entity.getCostPrice())
                 .salePrice(entity.getSalePrice())

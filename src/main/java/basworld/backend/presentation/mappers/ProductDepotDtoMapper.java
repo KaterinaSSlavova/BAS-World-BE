@@ -9,7 +9,6 @@ public class ProductDepotDtoMapper {
         return ProductDepotPublicData.builder()
                 .depot(DepotMapper.toResponse(productDepot.getDepot()))
                 .stockQuantity(productDepot.getStockQuantity())
-                .isAvailable(productDepot.isAvailable())
                 .costPrice(productDepot.getCostPrice())
                 .salePrice(productDepot.getSalePrice())
                 .stockThreshold(productDepot.getStockThreshold())

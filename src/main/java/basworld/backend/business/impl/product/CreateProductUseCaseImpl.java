@@ -73,7 +73,7 @@ public class CreateProductUseCaseImpl implements CreateProductUseCase {
             var supplier = supplierRepository.findById(command.getSupplierId())
                     .orElseThrow(() -> new IllegalArgumentException("Supplier not found!"));
 
-            var productDepot = new ProductDepot(savedProduct, depot, command.isAvailable(), command.getStockQuantity(),
+            var productDepot = new ProductDepot(savedProduct, depot, command.getStockQuantity(),
                     command.getCostPrice(), command.getSalePrice(), command.getStockThreshold(), supplier);
 
             productDepots.add(productDepot);

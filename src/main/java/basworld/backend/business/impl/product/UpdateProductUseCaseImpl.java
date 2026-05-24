@@ -91,7 +91,7 @@ public class UpdateProductUseCaseImpl implements UpdateProductUseCase {
 
             if (productDepot != null) {
                 // update existing product depots
-                productDepot.update(cmd.isAvailable(), cmd.getStockQuantity(), cmd.getCostPrice(), cmd.getSalePrice(), cmd.getStockThreshold(), cmdSupplier);
+                productDepot.update(cmd.getStockQuantity(), cmd.getCostPrice(), cmd.getSalePrice(), cmd.getStockThreshold(), cmdSupplier);
 
             } else {
                 Depot depot = depotRepository.findById(cmd.getDepotId())
@@ -100,7 +100,6 @@ public class UpdateProductUseCaseImpl implements UpdateProductUseCase {
                 productDepot = new ProductDepot(
                         existingProduct,
                         depot,
-                        cmd.isAvailable(),
                         cmd.getStockQuantity(),
                         cmd.getCostPrice(),
                         cmd.getSalePrice(),
