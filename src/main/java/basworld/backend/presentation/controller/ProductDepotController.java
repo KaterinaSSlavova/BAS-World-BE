@@ -31,13 +31,6 @@ public class ProductDepotController {
     private final GetStockAlertsUseCase getStockAlertsUseCase;
 
 
-//    @GetMapping
-//    public List<ProductWithDepotsResponse> getAll() {
-//        return getAllProductDepotUseCase.execute()
-//                .stream()
-//                .map(ProductWithDepotsDtoMapper::toResponse)
-//                .toList();
-//    }
 
     @GetMapping("/search")
     public List<ProductDepotPublicData> search(@RequestParam String query) {
