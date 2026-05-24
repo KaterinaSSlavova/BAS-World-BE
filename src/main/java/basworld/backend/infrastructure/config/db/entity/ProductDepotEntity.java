@@ -43,7 +43,6 @@ public class ProductDepotEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "supplier_id")
     private SupplierEntity supplier;
-}
 
     @Column(name= "stock_threshold")
     private Integer stockThreshold;

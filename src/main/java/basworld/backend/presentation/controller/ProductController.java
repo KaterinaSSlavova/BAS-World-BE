@@ -62,20 +62,10 @@ public class ProductController {
                         .available(r.isAvailable())
                         .costPrice(r.getCostPrice())
                         .salePrice(r.getSalePrice())
+                        .stockThreshold(r.getStockThreshold())
                         .supplierId(r.getSupplierId())
                         .build()
                 )
-                .stream().map(r -> {
-                    System.out.println("stockThreshold from request: " + r.getStockThreshold());
-                    return ProductDepotCommand.builder()
-                            .depotId(r.getDepotId())
-                            .stockQuantity(r.getStockQuantity())
-                            .available(r.isAvailable())
-                            .costPrice(r.getCostPrice())
-                            .salePrice(r.getSalePrice())
-                            .stockThreshold(r.getStockThreshold())
-                            .build();
-                })
                 .toList();
 
         UpdateProductCommand updateProductCommand = new UpdateProductCommand(

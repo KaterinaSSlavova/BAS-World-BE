@@ -19,16 +19,15 @@ public class ProductDepot {
     private Supplier supplier;
 
     @Builder
-    public ProductDepot(Product product, Depot depot, boolean isAvailable, Long stockQuantity, BigDecimal costPrice, BigDecimal salePrice, Integer stockThreshold) {
-    public ProductDepot(Product product, Depot depot, boolean isAvailable, Long stockQuantity, BigDecimal costPrice, BigDecimal salePrice, Supplier supplier) {
+    public ProductDepot(Product product, Depot depot, boolean isAvailable, Long stockQuantity, BigDecimal costPrice, BigDecimal salePrice, Integer stockThreshold, Supplier supplier) {
         if(product == null) throw new IllegalArgumentException("Product cannot be null!");
-        if(depot==null) throw new IllegalArgumentException("Depot cannot be null!");
-        if(stockQuantity<0) throw new IllegalArgumentException("Stock quantity cannot be negative!");
-        if(costPrice.compareTo(BigDecimal.ZERO) <= 0 ) throw new IllegalArgumentException("Cost price cannot be 0 or negative");
-        if(salePrice.compareTo(BigDecimal.ZERO) <= 0 ) throw new IllegalArgumentException("Sale price cannot be 0 or negative");
-        if(stockQuantity==0 && isAvailable) throw new IllegalArgumentException("Product cannot be available when stock is 0!");
+        if(depot == null) throw new IllegalArgumentException("Depot cannot be null!");
+        if(stockQuantity < 0) throw new IllegalArgumentException("Stock quantity cannot be negative!");
+        if(costPrice.compareTo(BigDecimal.ZERO) <= 0) throw new IllegalArgumentException("Cost price cannot be 0 or negative");
+        if(salePrice.compareTo(BigDecimal.ZERO) <= 0) throw new IllegalArgumentException("Sale price cannot be 0 or negative");
+        if(stockQuantity == 0 && isAvailable) throw new IllegalArgumentException("Product cannot be available when stock is 0!");
         if(stockThreshold < 0) throw new IllegalArgumentException("Stock threshold must be greater than 0!");
-        if(supplier == null ) throw new IllegalArgumentException("Supplier cannot be null!");
+        if(supplier == null) throw new IllegalArgumentException("Supplier cannot be null!");
 
         this.product = product;
         this.depot = depot;
@@ -39,22 +38,14 @@ public class ProductDepot {
         this.stockThreshold = stockThreshold;
         this.supplier = supplier;
     }
-    public void update(boolean isAvailable, Long stockQuantity, BigDecimal costPrice, BigDecimal salePrice, Integer stockThreshold) {
-        if(stockQuantity<0) throw new IllegalArgumentException("Stock quantity cannot be negative!");
-        if(costPrice.compareTo(BigDecimal.ZERO) <= 0 ) throw new IllegalArgumentException("Cost price cannot be 0 or negative");
-        if(salePrice.compareTo(BigDecimal.ZERO) <= 0 ) throw new IllegalArgumentException("Sale price cannot be 0 or negative");
-        if(stockQuantity==0 && isAvailable) throw new IllegalArgumentException("Product cannot be available when stock is 0!");
+
+    public void update(boolean isAvailable, Long stockQuantity, BigDecimal costPrice, BigDecimal salePrice, Integer stockThreshold, Supplier supplier) {
+        if(supplier == null) throw new IllegalArgumentException("Supplier cannot be null!");
+        if(stockQuantity < 0) throw new IllegalArgumentException("Stock quantity cannot be negative!");
+        if(costPrice.compareTo(BigDecimal.ZERO) <= 0) throw new IllegalArgumentException("Cost price cannot be 0 or negative");
+        if(salePrice.compareTo(BigDecimal.ZERO) <= 0) throw new IllegalArgumentException("Sale price cannot be 0 or negative");
+        if(stockQuantity == 0 && isAvailable) throw new IllegalArgumentException("Product cannot be available when stock is 0!");
         if(stockThreshold < 0) throw new IllegalArgumentException("Stock threshold must be greater than 0!");
-    public void update(boolean isAvailable, Long stockQuantity, BigDecimal costPrice,
-                       BigDecimal salePrice, Supplier supplier) {
-        if (supplier == null) throw new IllegalArgumentException("Supplier cannot be null!");
-        if (stockQuantity == null) throw new IllegalArgumentException("Stock quantity cannot be null!");
-        if (costPrice == null) throw new IllegalArgumentException("Cost price cannot be null!");
-        if (salePrice == null) throw new IllegalArgumentException("Sale price cannot be null!");
-        if (stockQuantity < 0) throw new IllegalArgumentException("Stock quantity cannot be negative!");
-        if (costPrice.compareTo(BigDecimal.ZERO) <= 0) throw new IllegalArgumentException("Cost price cannot be 0 or negative");
-        if (salePrice.compareTo(BigDecimal.ZERO) <= 0) throw new IllegalArgumentException("Sale price cannot be 0 or negative");
-        if (stockQuantity == 0 && isAvailable) throw new IllegalArgumentException("Product cannot be available when stock is 0!");
 
         this.isAvailable = isAvailable;
         this.stockQuantity = stockQuantity;
