@@ -30,7 +30,7 @@ public class ProductDepot {
 
         this.product = product;
         this.depot = depot;
-        this.isAvailable = stockQuantity > stockThreshold;
+        this.isAvailable = stockQuantity == 0;
         this.stockQuantity = stockQuantity;
         this.costPrice = costPrice;
         this.salePrice = salePrice;
@@ -45,7 +45,7 @@ public class ProductDepot {
         if(salePrice.compareTo(BigDecimal.ZERO) <= 0) throw new IllegalArgumentException("Sale price cannot be 0 or negative");
         if(stockThreshold < 0) throw new IllegalArgumentException("Stock threshold must be greater than 0!");
 
-        this.isAvailable = stockQuantity > stockThreshold;
+        this.isAvailable = stockQuantity == 0;
         this.stockQuantity = stockQuantity;
         this.costPrice = costPrice;
         this.salePrice = salePrice;

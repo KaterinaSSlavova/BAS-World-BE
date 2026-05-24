@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class ProductDepotPublicData {
     private DepotResponse depot;
-    private boolean isAvailable;
+    private boolean available;
     private Long stockQuantity;
     private BigDecimal costPrice;
     private BigDecimal salePrice;
