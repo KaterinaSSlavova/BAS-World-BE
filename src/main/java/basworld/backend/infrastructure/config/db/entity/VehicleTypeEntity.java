@@ -15,8 +15,6 @@ public class VehicleTypeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String picture;
-
     @Column(name="vehicle_type_name")
     private String name;
 
