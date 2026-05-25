@@ -4,6 +4,7 @@ import basworld.backend.domain.product.ProductStatus;
 import basworld.backend.presentation.dto.CategoryPublicData;
 import basworld.backend.presentation.dto.TypePublicData;
 import basworld.backend.presentation.dto.brand.BrandResponse;
+import basworld.backend.presentation.dto.vehicleType.VehicleTypeResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -17,4 +18,5 @@ public class ProductPublicData {
     private ProductStatus status;
     private TypePublicData type;
     private CategoryPublicData category;
+    private VehicleTypeResponse vehicleType;
 }

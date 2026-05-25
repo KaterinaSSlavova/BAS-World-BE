@@ -15,6 +15,8 @@ public class UpdateProductCommand {
     private ProductStatus status;
     private Long typeId;
     private Long categoryId;
+    private Long vehicleTypeId;
+    private Long supplierId;
 
     //depot
     private List<ProductDepotCommand> productDepots;
