@@ -67,6 +67,6 @@ public class ProductDepotRepositoryImpl implements ProductDepotRepository {
 
     @Override
     public List<ProductDepot> findAllWithLowStock(){
-        return productDepotJpaRepository.findAllWithLowStock().stream().map(ProductDepotMapper::toDomain).toList();
+        return productDepotJpaRepository.findAllWithLowStock().stream().map(ProductDepotMapper::toDomain).toList().reversed();
     }
 }
