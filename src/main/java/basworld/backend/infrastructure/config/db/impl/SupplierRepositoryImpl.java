@@ -23,7 +23,7 @@ public class SupplierRepositoryImpl implements SupplierRepository {
     }
     @Override
     public List<Supplier> findAll() {
-        return jpaSupplierRepository.findAll().stream().map(SupplierMapper::toDomain).toList();
+        return jpaSupplierRepository.findAllByIsArchivedFalse().stream().map(SupplierMapper::toDomain).toList();
     }
     @Override
     public boolean existsByNameAndArchivedFalse(String name) {

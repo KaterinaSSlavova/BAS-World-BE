@@ -29,7 +29,7 @@ public class BrandRepositoryImpl implements BrandRepository {
 
     @Override
     public List<Brand> findAll() {
-        return jpaBrandRepository.findAll().stream().map(BrandMapper::toDomain).toList(); // ← remove .filter()
+        return jpaBrandRepository.findAllByIsArchivedFalse().stream().map(BrandMapper::toDomain).toList(); // ← remove .filter()
     }
 
     @Override
