@@ -24,6 +24,15 @@ jacocoTestReport {
 	}
 }
 
+sonarqube {
+	properties {
+		property "sonar.coverage.jacoco.xmlReportPaths",
+				"${layout.buildDirectory.get()}/reports/jacoco/test/jacocoTestReport.xml"
+	}
+}
+
+tasks.sonarqube.dependsOn jacocoTestReport
+
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
@@ -37,11 +46,11 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-websocket'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
-    implementation 'org.springframework.boot:spring-boot-starter-webmvc'
-    compileOnly 'org.projectlombok:lombok'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-flyway'
     implementation 'org.flywaydb:flyway-core:10.17.2'
@@ -51,4 +60,5 @@ dependencies {
 }
 tasks.named('test') {
 	useJUnitPlatform()
+	finalizedBy jacocoTestReport
 }
