@@ -32,7 +32,7 @@ public class BrandControllerIntegrationTest {
         // arrange
         String body = """
                 {
-                    "name": "Michelin"
+                    "name": "Brand"
                 }
                 """;
 
@@ -42,7 +42,7 @@ public class BrandControllerIntegrationTest {
                 .content(body))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.id").exists())
-                .andExpect(jsonPath("$.name").value("Michelin"));
+                .andExpect(jsonPath("$.name").value("Brand"));
     }
 
     @Test

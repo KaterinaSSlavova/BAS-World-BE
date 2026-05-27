@@ -25,7 +25,7 @@ public class TypeRepositoryImpl implements TypeRepository {
 
     @Override
     public List<Type> findAll() {
-        return jpaTypeRepository.findAllByArchivedFalse()
+        return jpaTypeRepository.findAllByIsArchivedFalse()
                 .stream()
                 .map(TypeMapper::toDomain)
                 .toList();

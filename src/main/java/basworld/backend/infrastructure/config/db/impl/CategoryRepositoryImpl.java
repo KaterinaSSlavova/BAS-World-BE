@@ -24,7 +24,7 @@ public class CategoryRepositoryImpl implements CategoryRepository {
 
     @Override
     public List<Category> findAll() {
-        return jpaCategoryRepository.findAllByArchivedFalse()
+        return jpaCategoryRepository.findAllByIsArchivedFalse()
                 .stream()
                 .map(CategoryMapper::toDomain)
                 .toList();
