@@ -24,7 +24,7 @@ public class VehicleTypeRepositoryImpl implements VehicleTypeRepository {
     }
     @Override
     public List<VehicleType> findAll() {
-        return jpaRepository.findAll().stream().map(VehicleTypeMapper::toDomain).toList();
+        return jpaRepository.findAllByArchivedFalse().stream().map(VehicleTypeMapper::toDomain).toList();
     }
     @Override
     public boolean existsByNameAndArchivedFalse(String name) {
