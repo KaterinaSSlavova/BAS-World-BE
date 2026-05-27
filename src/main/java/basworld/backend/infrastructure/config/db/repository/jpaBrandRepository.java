@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface jpaBrandRepository extends JpaRepository<BrandEntity,Long> {
     boolean existsByBrandNameAndArchivedFalse(String name);
-    List<BrandEntity> findAllByIsArchivedFalse();
+    List<BrandEntity> findAllByArchivedFalse();
 }

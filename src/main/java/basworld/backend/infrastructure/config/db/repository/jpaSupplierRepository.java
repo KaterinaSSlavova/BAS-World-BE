@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface jpaSupplierRepository extends JpaRepository<SupplierEntity,Long> {
     boolean existsByNameAndArchivedFalse(String name);
-    List<SupplierEntity> findAllByIsArchivedFalse();
+    List<SupplierEntity> findAllByArchivedFalse();
 }

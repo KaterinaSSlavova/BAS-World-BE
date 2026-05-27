@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface jpaCategoryRepository extends JpaRepository<CategoryEntity, Long> {
-    List<CategoryEntity> findAllByIsArchivedFalse();
+    List<CategoryEntity> findAllByArchivedFalse();
     List<CategoryEntity> findAllByParentIsNullAndIsArchivedFalse();
     boolean existsByNameAndIsArchivedFalse(String name);
 }

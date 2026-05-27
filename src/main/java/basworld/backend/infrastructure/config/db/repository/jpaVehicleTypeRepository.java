@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface jpaVehicleTypeRepository extends JpaRepository<VehicleTypeEntity, Long> {
     boolean existsByNameAndArchivedFalse(String name);
-    List<VehicleTypeEntity> findAllByIsArchivedFalse();
+    List<VehicleTypeEntity> findAllByArchivedFalse();
 }
