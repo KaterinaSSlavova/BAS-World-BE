@@ -2,7 +2,6 @@ package basworld.backend.presentation.controller;
 
 import basworld.backend.business.useCase.GetAnalyticsUseCase;
 import basworld.backend.domain.analytics.AnalyticsData;
-import basworld.backend.domain.product.Product;
 import basworld.backend.presentation.dto.analytics.AnalyticsDTO;
 import basworld.backend.presentation.dto.analytics.CategoryValueDTO;
 import basworld.backend.presentation.dto.analytics.DepotInventoryValueDTO;
