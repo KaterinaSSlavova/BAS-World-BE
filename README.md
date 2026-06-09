@@ -81,6 +81,8 @@ VITE_WS_URL=ws://145.220.72.89:8080/ws
 
 ### Backend - runs on the http://localhost:8080
 
+**API Documentation (Swagger):** http://localhost:8080/swagger-ui/index.html
+
 ```bash
 cd group-be
 ./gradlew bootRun
