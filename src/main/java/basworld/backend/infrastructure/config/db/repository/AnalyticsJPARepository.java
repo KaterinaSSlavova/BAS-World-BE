@@ -37,7 +37,7 @@ public interface AnalyticsJPARepository extends JpaRepository<ProductDepotEntity
 
     @Query("SELECT pd.product " +
             "FROM ProductDepotEntity pd " +
-            "JOIN pd.product p " +
-            "ORDER BY pd.stockQuantity DESC")
+            "GROUP BY pd.product.id, pd.product " +
+            "ORDER BY SUM(pd.stockQuantity) DESC")
     List<ProductEntity> findTopProductByQuantity(Pageable pageable);
 }
