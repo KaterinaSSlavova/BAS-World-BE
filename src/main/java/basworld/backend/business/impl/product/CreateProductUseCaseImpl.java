@@ -47,8 +47,6 @@ public class CreateProductUseCaseImpl implements CreateProductUseCase {
             throw new IllegalArgumentException("VehicleTypeId cannot be null!");
         }
 
-
-
         var category = categoryRepository.findById(request.getCategoryId()).orElseThrow(() -> new IllegalArgumentException("Category not found!"));
         var type = typeRepository.findById(request.getTypeId()).orElseThrow(() -> new IllegalArgumentException("Type Id not found!"));
         var brand = brandRepository.findById(request.getBrandId()).orElseThrow(() -> new IllegalArgumentException("Brand Id not found!"));

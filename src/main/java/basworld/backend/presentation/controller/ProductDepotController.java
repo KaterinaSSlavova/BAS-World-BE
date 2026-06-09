@@ -1,11 +1,6 @@
 package basworld.backend.presentation.controller;
 import basworld.backend.business.useCase.*;
-import basworld.backend.business.useCase.category.GetCategoryUseCase;
-import basworld.backend.business.useCase.depot.GetDepotUseCase;
-import basworld.backend.business.useCase.product.GetProductUseCase;
 import basworld.backend.business.useCase.product.GetStockAlertsUseCase;
-import basworld.backend.business.useCase.product.UpdateProductUseCase;
-import basworld.backend.business.useCase.type.GetTypeUseCase;
 import basworld.backend.presentation.dto.product.ProductDepotPublicData;
 import basworld.backend.presentation.dto.product.StockAlertsResponse;
 import basworld.backend.presentation.mappers.ProductDepotDtoMapper;
@@ -21,16 +16,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductDepotController {
 
-    private final GetAllProductDepotUseCase getAllProductDepotUseCase;
-    private final UpdateProductUseCase updateProductUseCase;
-    private final GetProductUseCase getProductUseCase;
-    private final GetDepotUseCase getDepotUseCase;
-    private final GetCategoryUseCase getCategoryUseCase;
-    private final GetTypeUseCase getTypeUseCase;
     private final SearchProductUseCase searchProductUseCase;
     private final GetStockAlertsUseCase getStockAlertsUseCase;
-
-
 
     @GetMapping("/search")
     public List<ProductDepotPublicData> search(@RequestParam String query) {

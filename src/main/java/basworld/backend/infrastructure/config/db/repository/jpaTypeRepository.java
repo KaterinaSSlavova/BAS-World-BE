@@ -7,6 +7,5 @@ import java.util.List;
 
 public interface jpaTypeRepository extends JpaRepository<TypeEntity,Long> {
     List<TypeEntity> findAllByIsArchivedFalse();
-    List<TypeEntity> findAllByParentIsNullAndIsArchivedFalse();
     boolean existsByNameAndIsArchivedFalse(String name);
 }

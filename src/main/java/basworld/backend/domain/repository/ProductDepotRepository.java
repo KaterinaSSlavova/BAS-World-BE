@@ -7,7 +7,6 @@ import java.util.List;
 
 public interface ProductDepotRepository {
     ProductDepot save(ProductDepot productDepot);
-    boolean existsByProductIdAndDepotId(Long productId, Long depotId);
     List<ProductDepot> findAll();
     List<ProductDepot> search(String query);
     List<ProductDepot> saveAll(List<ProductDepot> productDepots);

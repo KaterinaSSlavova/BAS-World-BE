@@ -31,14 +31,6 @@ public class CategoryRepositoryImpl implements CategoryRepository {
     }
 
     @Override
-    public List<Category> findAllRoots() {
-        return jpaCategoryRepository.findAllByParentIsNullAndIsArchivedFalse()
-                .stream()
-                .map(CategoryMapper::toDomain)
-                .toList();
-    }
-
-    @Override
     public Category save(Category category) {
         CategoryEntity parentEntity = null;
 

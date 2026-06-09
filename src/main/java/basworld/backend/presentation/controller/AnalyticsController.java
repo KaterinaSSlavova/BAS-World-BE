@@ -25,7 +25,6 @@ public class AnalyticsController {
     public ResponseEntity<AnalyticsDTO> getAnalyticsData() {
         AnalyticsData data = getAnalyticsUseCase.getAnalyticsData();
 
-        // 2. Map the domain lists to DTO lists right here at the boundary
         var categoryValueDTOs = data.stockValueByCategory().stream()
                 .map(c -> new CategoryValueDTO(c.categoryId(), c.categoryName(), c.totalValue()))
                 .collect(Collectors.toList());
@@ -43,7 +42,6 @@ public class AnalyticsController {
              highestProductDto = ProductDtoMapper.toProductPublicData(data.highestQuantityProduct());
         }
 
-        // 3. Package it all up into the final single-call DTO payload
         AnalyticsDTO responsePayload = new AnalyticsDTO(
                 categoryValueDTOs,
                 depotValueDTOs,

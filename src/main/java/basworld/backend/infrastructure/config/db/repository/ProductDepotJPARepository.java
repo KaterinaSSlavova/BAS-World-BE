@@ -21,16 +21,6 @@ public interface ProductDepotJPARepository extends JpaRepository<ProductDepotEnt
     List<ProductDepotEntity> findAllWithLowStock();
 
     @Query("""
-        SELECT pd
-        FROM ProductDepotEntity pd
-        JOIN FETCH pd.product p
-        JOIN FETCH pd.depot d
-        LEFT JOIN FETCH p.type
-        LEFT JOIN FETCH p.category
-    """)
-    List<ProductDepotEntity> findAllWithProductAndDepot();
-
-    @Query("""
     SELECT pd
     FROM ProductDepotEntity pd
     JOIN FETCH pd.product p
