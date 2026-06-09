@@ -13,7 +13,7 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:5173", "http://145.220.72.89", "http://145.220.72.89:3000")
+                        .allowedOrigins("http://localhost:5173", "http://145.220.72.89", "http://145.220.72.89:3000", "https://bas-world-fe-production.up.railway.app")
                         .allowedMethods("*").allowedHeaders("*");
             }
         };
