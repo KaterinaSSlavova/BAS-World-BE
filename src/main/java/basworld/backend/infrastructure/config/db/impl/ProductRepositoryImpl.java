@@ -28,10 +28,5 @@ public class ProductRepositoryImpl implements ProductRepository {
     }
 
     @Override
-    public boolean existsById(Long id) {
-        return productRepository.existsById(id);
-    }
-
-    @Override
     public List<Product> findAll() { return productRepository.findAll().stream().map(ProductMapper::toDomain).toList();}
 }

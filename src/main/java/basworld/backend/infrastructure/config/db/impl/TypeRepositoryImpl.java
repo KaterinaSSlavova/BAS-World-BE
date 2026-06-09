@@ -32,14 +32,6 @@ public class TypeRepositoryImpl implements TypeRepository {
     }
 
     @Override
-    public List<Type> findAllRoots() {
-        return jpaTypeRepository.findAllByParentIsNullAndIsArchivedFalse()
-                .stream()
-                .map(TypeMapper::toDomain)
-                .toList();
-    }
-
-    @Override
     public Type save(Type type) {
         TypeEntity parentEntity = null;
 

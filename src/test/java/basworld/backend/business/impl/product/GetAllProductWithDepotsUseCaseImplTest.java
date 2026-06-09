@@ -34,7 +34,6 @@ class GetAllProductWithDepotsUseCaseImplTest {
 
         List<Product> products = List.of(product1, product2);
 
-        // --- Depots ---
         ProductDepot depot1 = mock(ProductDepot.class);
         ProductDepot depot2 = mock(ProductDepot.class);
 
@@ -43,7 +42,6 @@ class GetAllProductWithDepotsUseCaseImplTest {
 
         List<ProductDepot> depots = List.of(depot1, depot2);
 
-        // --- Mock behavior ---
         when(productRepository.findAll()).thenReturn(products);
 
         when(productDepotRepository.findByProductIn(List.of(1L, 2L)))
@@ -55,10 +53,8 @@ class GetAllProductWithDepotsUseCaseImplTest {
         // --- Assert ---
         assertEquals(2, result.size());
 
-        // product1 has 2 depots
         assertEquals(2, result.get(product1).size());
 
-        // product2 has no depots → empty list
         assertTrue(result.get(product2).isEmpty());
 
         verify(productRepository).findAll();

@@ -23,11 +23,6 @@ public class ProductDepotRepositoryImpl implements ProductDepotRepository {
     }
 
     @Override
-    public boolean existsByProductIdAndDepotId(Long productId, Long depotId) {
-        return productDepotJpaRepository.existsByProductIdAndDepotId(productId, depotId);
-    }
-
-    @Override
     public List<ProductDepot> findAll() {
         return productDepotJpaRepository.findAll()
                 .stream()
