@@ -1,7 +1,6 @@
 package basworld.backend.domain.repository;
 
 import basworld.backend.domain.depot.ProductDepot;
-import basworld.backend.infrastructure.config.db.entity.ProductDepotEntity;
 
 import java.util.List;
 
