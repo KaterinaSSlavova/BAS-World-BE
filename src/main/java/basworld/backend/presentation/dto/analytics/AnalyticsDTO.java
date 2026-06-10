@@ -10,7 +10,7 @@ import java.util.List;
 @Getter @AllArgsConstructor @Setter
 public class AnalyticsDTO{
     private List<CategoryValueDTO> stockValueByCategory;
-    private List<DepotInventoryValueDTO> productCountByDepot;
-    private List<DepotProductCountDTO> inventoryValueByDepot;
+    private List<DepotInventoryValueDTO> inventoryValueByDepot;
+    private List<DepotProductCountDTO> productCountByDepot;
     private ProductPublicData highestQuantityProduct;
 }
